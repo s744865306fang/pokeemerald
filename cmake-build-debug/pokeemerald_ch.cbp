@@ -1,0 +1,2698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pokeemerald_ch"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pokeemerald_ch">
+				<Option output="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug/pokeemerald_ch.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/field_effects"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/region_map"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbafix"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/nlohmann"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 pokeemerald_ch"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="pokeemerald_ch/fast">
+				<Option output="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug/pokeemerald_ch.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/field_effects"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/region_map"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbafix"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/nlohmann"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont"/>
+					<Add directory="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 pokeemerald_ch/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\17259\Desktop\GBAHack\C\pokeemerald-ch\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/bg.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/bg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/blit.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/blit.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/dma3.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/dma3_manager.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/gpu_regs.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/gpu_regs.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/io_reg.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/io_reg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/malloc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/malloc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/sprite.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/sprite.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/string_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/string_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/text.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/text.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/window.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/gflib/window.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/AgbRfu_LinkManager.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/agb_flash.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/apprentice.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/bard_music.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_ai_script_commands.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_ai_switch_items.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_anim.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_arena.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_bg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_controllers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_dome.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_factory.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_factory_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_gfx_sfx_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_interface.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_main.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_message.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_pike.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_pyramid.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_pyramid_bag.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_records.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_script_commands.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_scripts.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_setup.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_tent.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_tower.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_transition.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_transition_frontier.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_tv.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/battle_util2.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry_blender.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry_crush.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry_fix_program.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry_powder.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/berry_tag_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/bike.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/braille_puzzles.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/cable_club.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/clear_save_data_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/clock.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/coins.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/confetti_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/config.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/abilities.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/apprentice.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_ai.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_anim.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_arena.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_dome.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_factory.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_frontier.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_frontier_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_frontier_trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_move_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_palace.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_pike.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_pyramid.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_script_commands.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_setup.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_string_ids.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_tent.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_tent_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_tent_trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/battle_tower.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/berry.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/cable_club.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/coins.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/contest.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/daycare.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/decorations.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/easy_chat.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/event_bg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/event_object_movement.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/event_objects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/field_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/field_poison.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/field_specials.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/field_tasks.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/field_weather.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/flags.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/frontier_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/game_stat.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/global.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/heal_locations.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/hold_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/item.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/item_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/items.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/layouts.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/lilycove_lady.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/map_groups.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/map_scripts.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/map_types.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/maps.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/mauville_old_man.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/metatile_behaviors.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/metatile_labels.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/mevent.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/moves.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/opponents.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/party_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/pokemon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/region_map_sections.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/rgb.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/roulette.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/script_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/secret_bases.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/slot_machine.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/songs.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/species.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/trade.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/trainer_hill.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/trainer_types.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/tv.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/union_room.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/vars.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/constants/weather.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest_ai.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest_effect.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest_link.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest_painting.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/contest_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/coord_event_weather.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/credits.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/crt0.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/data.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/daycare.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/decompress.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/decoration.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/decoration_inventory.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/dewford_trend.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/digit_obj_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/diploma.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/dodrio_berry_picking.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/dynamic_placeholder_text_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/easy_chat.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/egg_hatch.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/ereader_helpers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/ereader_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/event_data.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/event_object_lock.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/event_object_movement.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/event_scripts.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/evolution_graphics.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/evolution_scene.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/faraway_island.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_camera.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_control_avatar.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_door.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_effect.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_effect_helpers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_message_box.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_player_avatar.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_poison.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_screen_effect.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_special_scene.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_specials.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_tasks.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/field_weather.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/fieldmap.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/fldeff.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/fldeff_misc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/frontier_pass.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/frontier_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/defines.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/flash_internal.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/gba.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/io_reg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/isagbprint.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/m4a_internal.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/macro.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/multiboot.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/syscall.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gba/types.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/global.berry.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/global.fieldmap.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/global.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/global.tv.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/graphics.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/gym_leader_rematch.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/hall_of_fame.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/heal_location.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/image_processing_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/international_string_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/intro.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/intro_credits_graphics.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/item.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/item_icon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/item_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/item_menu_icons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/item_use.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/landmark.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/libgcnmultiboot.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/librfu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/lilycove_lady.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/link.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/link_rfu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/list_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/load_save.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/lottery_corner.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/m4a.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mail.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/main.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/main_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/map_name_popup.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/match_call.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/math_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mauville_old_man.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/menu_helpers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/menu_specialized.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/metatile_behavior.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent2.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent_801BAAC.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent_client.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent_news.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent_server.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mevent_server_helpers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/minigame_countdown.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mirage_tower.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mon_markings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/money.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/move_relearner.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/multiboot.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/multiboot_pokemon_colosseum.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mystery_event_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mystery_event_msg.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mystery_event_script.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/mystery_gift.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/naming_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/new_game.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/option_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/overworld.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/palette.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/palette_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/party_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pc_screen_effect.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/play_time.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/player_pc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokeball.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokeblock.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokedex.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokedex_area_region_map.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokedex_area_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokedex_cry_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_animation.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_icon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_jump.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_size_record.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_storage_system.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokemon_summary_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/pokenav.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/random.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/rayquaza_scene.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/record_mixing.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/recorded_battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/region_map.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/reset_rtc_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/reset_save_heap.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/reshow_battle_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/roamer.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/rotating_gate.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/rotating_tile_puzzle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/roulette.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/rtc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/safari_zone.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/save.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/save_location.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/scanline_effect.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/script.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/script_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/script_movement.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/script_pokemon_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/secret_base.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/shop.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/siirtc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/slot_machine.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/sound.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/start_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/starter_choose.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/strings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/task.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/text_window.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/tileset_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/tilesets.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/time_events.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/title_screen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trade.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trader.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trainer_card.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trainer_hill.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trainer_pokemon_sprites.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trainer_see.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/trig.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/tv.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/union_room.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/union_room_battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/union_room_chat.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/union_room_player_avatar.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/walda_phrase.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/wallclock.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/include/wild_encounter.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/AgbRfu_LinkManager.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/agb_flash.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/agb_flash_1m.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/agb_flash_le.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/agb_flash_mx.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/anim_mon_front_pics.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/apprentice.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/bard_music.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_ai_script_commands.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_ai_switch_items.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_bug.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_dark.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_dragon.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_effects_1.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_effects_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_effects_3.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_electric.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_fight.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_fire.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_flying.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_ghost.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_ground.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_ice.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_mon_movement.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_mons.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_normal.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_poison.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_psychic.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_rock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_smokescreen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_sound_tasks.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_status_effects.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_throw.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_utility_funcs.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_anim_water.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_arena.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_bg.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_link_opponent.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_link_partner.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_opponent.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_player.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_player_partner.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_recorded_opponent.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_recorded_player.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_safari.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controller_wally.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_controllers.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_dome.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_factory.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_factory_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_gfx_sfx_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_interface.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_intro.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_main.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_message.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_palace.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_pike.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_pyramid.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_pyramid_bag.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_records.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_script_commands.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_setup.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_tent.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_tower.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_transition.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_transition_frontier.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_tv.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/battle_util2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_blender.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_crush.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_fix_graphics.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_fix_program.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_powder.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/berry_tag_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/bike.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/birch_pc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/braille_puzzles.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/cable_car.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/cable_club.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/clear_save_data_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/clock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/coins.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/confetti_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_ai.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_effect.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_link.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_link_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_painting.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/contest_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/coord_event_weather.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/credits.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/actions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/adjectives.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/bard_sounds.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/conditions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/default_sound.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/endings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/events.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/feelings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/greetings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/hobbies.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/length_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/lifestyle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/misc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/moves.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/people.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/pokemon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/speech.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/status.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/time.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/trainer.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/trendysaying.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/voices.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/bard_music/word_pitch.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/apprentice.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_frontier_exchange_corner.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_frontier_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_frontier_trainer_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_frontier_trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_pyramid_open_level_wild_mons.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/battle_tent.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_frontier/trainer_hill.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/battle_moves.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/contest_moves.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/contest_opponents.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/contest_text_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/credits.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration/description.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration/header.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration/icon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration/tilemaps.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/decoration/tiles.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_actions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_adjectives.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_battle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_conditions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_endings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_events.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_feelings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_greetings.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_hobbies.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_lifestyle.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_misc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_move_1.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_move_2.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_people.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_pokemon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_pokemon2.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_speech.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_status.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_time.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_trainer.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_trendy_saying.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_group_voices.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_groups.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/easy_chat/easy_chat_words_by_letter.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/field_effects/field_effect_object_template_pointers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/field_effects/field_effect_objects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/battle_terrain.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/berries.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/berry_fix.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/decorations.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/interface_pokeballs.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/intro_scene.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/items.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/mail.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/pokemon.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/rayquaza_scene.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/slot_machine.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/graphics/trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/heal_locations.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/item_icon_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/items.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/lilycove_lady.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/base_oam.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/berry_tree_graphics_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/movement_action_func_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/movement_type_func_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_graphics.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_graphics_info.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_graphics_info_pointers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_pic_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/object_events/object_event_subsprites.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/party_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pointillism_points.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/base_stats.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/cry_ids.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/egg_moves.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/evolution.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/experience_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/item_effects.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/level_up_learnset_pointers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/level_up_learnsets.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/pokedex_entries.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/pokedex_orders.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/pokedex_text.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/tmhm_learnsets.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/trainer_class_lookups.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon/tutor_learnsets.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/back_pic_coordinates.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/back_pic_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/enemy_mon_elevation.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/footprint_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/front_pic_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/front_pic_coordinates.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/front_pic_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/palette_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/shiny_palette_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/still_front_pic_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/unknown_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/pokemon_graphics/unknown_table.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/region_map/city_map_entries.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/region_map/city_map_tilemaps.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/region_map/region_map_entries.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/script_menu.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/abilities.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/gift_ribbon_descriptions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/item_descriptions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/match_call_messages.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/move_descriptions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/move_names.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/nature_names.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/ribbon_descriptions.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/species_names.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/text/trainer_class_names.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trade.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics/back_pic_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics/back_pic_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics/front_pic_anims.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_graphics/front_pic_tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainer_parties.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/trainers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/union_room.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/data/wallpapers.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/daycare.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/decompress.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/decoration.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/decoration_inventory.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/dewford_trend.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/digit_obj_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/diploma.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/dodrio_berry_picking.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/dynamic_placeholder_text_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/easy_chat.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/egg_hatch.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/ereader_helpers.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/ereader_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/event_data.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/event_object_lock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/event_object_movement.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/evolution_graphics.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/evolution_scene.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/faraway_island.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_camera.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_control_avatar.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_door.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_effect.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_effect_helpers.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_message_box.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_player_avatar.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_poison.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_region_map.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_screen_effect.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_special_scene.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_specials.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_tasks.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_weather.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/field_weather_effect.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fieldmap.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_cut.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_dig.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_escalator.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_flash.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_misc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_rocksmash.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_softboiled.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_strength.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_sweetscent.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/fldeff_teleport.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/frontier_pass.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/frontier_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/graphics.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/gym_leader_rematch.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/hall_of_fame.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/heal_location.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/hof_pc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/image_processing_effects.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/international_string_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/intro.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/intro_credits_graphics.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/item.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/item_icon.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/item_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/item_menu_icons.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/item_use.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/landmark.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/libisagbprn.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/librfu_intr.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/librfu_rfu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/librfu_sio32id.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/librfu_stwi.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/lilycove_lady.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/link.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/link_rfu_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/link_rfu_3.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/list_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/load_save.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/lottery_corner.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/m4a.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/m4a_tables.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mail.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mail_data.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/main.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/main_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/map_name_popup.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/match_call.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/math_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mauville_old_man.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/menu_helpers.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/menu_specialized.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/metatile_behavior.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_801BAAC.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_client.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_news.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_scripts.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_server.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mevent_server_helpers.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/minigame_countdown.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mirage_tower.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mon_markings.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/money.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/move_relearner.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/multiboot.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mystery_event_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mystery_event_msg.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mystery_event_script.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/mystery_gift.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/naming_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/new_game.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/option_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/overworld.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/palette.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/palette_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/party_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/play_time.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/player_pc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokeball.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokeblock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokeblock_feed.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokedex.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokedex_area_region_map.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokedex_area_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokedex_cry_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_animation.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_icon.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_jump.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_size_record.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_storage_system.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokemon_summary_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_conditions_1.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_conditions_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_conditions_3.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_main_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_match_call_1.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_match_call_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_match_call_data.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_match_call_ui.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_menu_handler_1.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_menu_handler_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_region_map.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_ribbons_1.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/pokenav_ribbons_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/post_battle_event_funcs.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/random.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/rayquaza_scene.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/record_mixing.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/recorded_battle.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/region_map.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/reset_rtc_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/reset_save_heap.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/reshow_battle_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/roamer.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/rotating_gate.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/rotating_tile_puzzle.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/roulette.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/rtc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/safari_zone.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/save.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/save_failed_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/save_location.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/scanline_effect.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/scrcmd.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/script.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/script_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/script_movement.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/script_pokemon_util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/secret_base.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/shop.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/siirtc.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/slot_machine.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/sound.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/start_menu.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/starter_choose.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/strings.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/task.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/text_input_strings.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/text_window.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/tileset_anims.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/time_events.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/title_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trade.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trader.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trainer_card.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trainer_hill.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trainer_pokemon_sprites.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trainer_see.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/trig.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/tv.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/union_room.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/union_room_battle.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/union_room_chat.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/union_room_player_avatar.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/unk_text_util_2.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/use_pokeblock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/walda_phrase.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/wallclock.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/wild_encounter.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/src/wireless_communication_status_screen.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/aif2pcm/extended.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/aif2pcm/main.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/bin2c/bin2c.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbafix/elf.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbafix/gbafix.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/convert_png.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/convert_png.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/font.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/font.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/gfx.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/gfx.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/global.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/huff.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/huff.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/jasc_pal.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/jasc_pal.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/lz.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/lz.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/main.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/options.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/rl.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/rl.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/gbagfx/util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/inja.hpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/jsonproc.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/jsonproc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/jsonproc/nlohmann/json.hpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson/json11.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson/json11.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson/mapjson.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mapjson/mapjson.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/agb.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/agb.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/error.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/error.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/main.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/main.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/midi.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/midi.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/tables.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/mid2agb/tables.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/asm_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/asm_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/c_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/c_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/char_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/charmap.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/charmap.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/preproc.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/preproc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/string_parser.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/string_parser.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/utf8.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/preproc/utf8.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/char_util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/elf.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/elf.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/main.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/ramscrgen.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/sym_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/ramscrgen/sym_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/convert_png.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/convert_png.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/font.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/font.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/gfx.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/global.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/main.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/util.c">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/rsfont/util.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/asm_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/asm_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/c_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/c_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/scaninc.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/scaninc.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/source_file.cpp">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/tools/scaninc/source_file.h">
+			<Option target="pokeemerald_ch"/>
+		</Unit>
+		<Unit filename="C:/Users/17259/Desktop/GBAHack/C/pokeemerald-ch/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
