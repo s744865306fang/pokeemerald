@@ -59,7 +59,15 @@ static const union AnimCmd sAnim_SludgeBombHit[] =
 static const union AnimCmd *const sAnims_PoisonProjectile[] =
 {
     sAnim_PoisonProjectile,
+};
+
+static const union AnimCmd *const sAnims_AcidPoisonDroplet[] =
+{
     sAnim_AcidPoisonDroplet,
+};
+
+static const union AnimCmd *const sAnims_SludgeBombHit[] =
+{
     sAnim_SludgeBombHit,
 };
 
@@ -114,7 +122,7 @@ const struct SpriteTemplate gSludgeBombHitParticleSpriteTemplate =
     .tileTag = ANIM_TAG_POISON_BUBBLE,
     .paletteTag = ANIM_TAG_POISON_BUBBLE,
     .oam = &gOamData_AffineNormal_ObjNormal_16x16,
-    .anims = &sAnims_PoisonProjectile[2],
+    .anims = sAnims_SludgeBombHit,
     .images = NULL,
     .affineAnims = sAffineAnims_SludgeBombHit,
     .callback = AnimSludgeBombHitParticle,
@@ -137,7 +145,7 @@ const struct SpriteTemplate gAcidPoisonDropletSpriteTemplate =
     .tileTag = ANIM_TAG_POISON_BUBBLE,
     .paletteTag = ANIM_TAG_POISON_BUBBLE,
     .oam = &gOamData_AffineDouble_ObjNormal_16x16,
-    .anims = &sAnims_PoisonProjectile[1],
+    .anims = sAnims_AcidPoisonDroplet,
     .images = NULL,
     .affineAnims = gAffineAnims_Droplet,
     .callback = AnimAcidPoisonDroplet,
@@ -182,11 +190,11 @@ static void AnimSludgeProjectile(struct Sprite *sprite)
     if (!gBattleAnimArgs[3])
         StartSpriteAnim(sprite, 2);
 
-    InitSpritePosToAnimAttacker(sprite, TRUE);
+    InitSpritePosToAnimAttacker(sprite, 1);
 
     sprite->data[0] = gBattleAnimArgs[2];
-    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
-    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+    sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, 3);
     sprite->data[5] = -30;
 
     InitAnimArcTranslation(sprite);
@@ -206,8 +214,8 @@ static void AnimAcidPoisonBubble(struct Sprite *sprite)
     if (!gBattleAnimArgs[3])
         StartSpriteAnim(sprite, 2);
 
-    InitSpritePosToAnimAttacker(sprite, TRUE);
-    SetAverageBattlerPositions(gBattleAnimTarget, TRUE, &l1, &l2);
+    InitSpritePosToAnimAttacker(sprite, 1);
+    SetAverageBattlerPositions(gBattleAnimTarget, 1, &l1, &l2);
 
     if (GetBattlerSide(gBattleAnimAttacker))
         gBattleAnimArgs[4] = -gBattleAnimArgs[4];

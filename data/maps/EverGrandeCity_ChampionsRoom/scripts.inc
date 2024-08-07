@@ -33,8 +33,8 @@ EverGrandeCity_ChampionsRoom_EventScript_EnterRoom::
 	waitmovement 0
 	setvar VAR_TEMP_1, 1
 	goto EverGrandeCity_ChampionsRoom_EventScript_Wallace
-	releaseall
-	end
+    releaseall
+    end
 
 EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace:
 	walk_up
@@ -50,20 +50,24 @@ EverGrandeCity_ChampionsRoom_EventScript_Wallace::
 
 EverGrandeCity_ChampionsRoom_EventScript_Defeated::
 	playse SE_DOOR
-	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
-	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
+	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, 0
+	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, 0
 	special DrawWholeMapView
 	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	closemessage
 	playse SE_DOOR
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, EverGrandeCity_ChampionsRoom_EventScript_PlayMayMusic
-	call_if_eq VAR_RESULT, FEMALE, EverGrandeCity_ChampionsRoom_EventScript_PlayBrendanMusic
+	compare VAR_RESULT, MALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_PlayMayMusic
+	compare VAR_RESULT, FEMALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_PlayBrendanMusic
 	addobject LOCALID_RIVAL
 	call EverGrandeCity_ChampionsRoom_EventScript_RivalApproachPlayer
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, EverGrandeCity_ChampionsRoom_EventScript_MayAdvice
-	goto_if_eq VAR_RESULT, FEMALE, EverGrandeCity_ChampionsRoom_EventScript_BrendanAdvice
+	compare VAR_RESULT, MALE
+	goto_if_eq EverGrandeCity_ChampionsRoom_EventScript_MayAdvice
+	compare VAR_RESULT, FEMALE
+	goto_if_eq EverGrandeCity_ChampionsRoom_EventScript_BrendanAdvice
 	end
 
 EverGrandeCity_ChampionsRoom_EventScript_PlayMayMusic::
@@ -105,37 +109,39 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	addobject LOCALID_BIRCH
 	applymovement LOCALID_BIRCH, EverGrandeCity_ChampionsRoom_Movement_BirchArrives
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox EverGrandeCity_ChampionsRoom_Text_BirchArriveRatePokedex, MSGBOX_DEFAULT
 	call ProfBirch_EventScript_RatePokedex
 	msgbox EverGrandeCity_ChampionsRoom_Text_BirchCongratulations, MSGBOX_DEFAULT
-	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	delay 20
-	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_WALLACE, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	applymovement LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_Movement_WallaceExitStart
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExitStart
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFastestUp
 	applymovement LOCALID_RIVAL, EverGrandeCity_ChampionsRoom_Movement_RivalFollows
 	waitmovement 0
 	delay 20
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	msgbox EverGrandeCity_ChampionsRoom_Text_WallaceWaitOutside, MSGBOX_DEFAULT
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, EverGrandeCity_ChampionsRoom_EventScript_MayCongratulations
-	call_if_eq VAR_RESULT, FEMALE, EverGrandeCity_ChampionsRoom_EventScript_BrendanCongratulations
+	compare VAR_RESULT, MALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_MayCongratulations
+	compare VAR_RESULT, FEMALE
+	call_if_eq EverGrandeCity_ChampionsRoom_EventScript_BrendanCongratulations
 	closemessage
 	applymovement LOCALID_WALLACE, EverGrandeCity_ChampionsRoom_Movement_WallaceExit
 	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit
 	waitmovement 0
 	setflag FLAG_HIDE_PETALBURG_GYM_GREETER
-	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
+	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 255, 7, 16
 	waitstate
 	releaseall
 	end
@@ -151,7 +157,7 @@ EverGrandeCity_ChampionsRoom_EventScript_BrendanCongratulations::
 EverGrandeCity_ChampionsRoom_EventScript_RivalApproachPlayer::
 	applymovement LOCALID_RIVAL, EverGrandeCity_ChampionsRoom_Movement_RivalApproachPlayer
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	return
 
@@ -181,17 +187,17 @@ EverGrandeCity_ChampionsRoom_Movement_RivalApproachPlayer:
 	walk_up
 	walk_left
 	walk_up
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	step_end
 
 EverGrandeCity_ChampionsRoom_Movement_RivalLookBackAndForth:
-	walk_in_place_faster_up
+	walk_in_place_fastest_up
 	delay_16
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	delay_16
-	walk_in_place_faster_up
+	walk_in_place_fastest_up
 	delay_8
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	delay_16
 	step_end
 
@@ -203,7 +209,7 @@ EverGrandeCity_ChampionsRoom_Movement_RivalFollows:
 EverGrandeCity_ChampionsRoom_Movement_WallaceExitStart:
 	walk_up
 	walk_up
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 EverGrandeCity_ChampionsRoom_Movement_WallaceExit:
@@ -220,7 +226,7 @@ EverGrandeCity_ChampionsRoom_Movement_BirchArrives:
 	walk_up
 	walk_right
 	walk_up
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 EverGrandeCity_ChampionsRoom_Text_IntroSpeech:

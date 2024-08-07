@@ -1,6 +1,10 @@
 #ifndef GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 #define GUARD_CONSTANTS_BATTLE_STRING_IDS_H
 
+#define BATTLESTRINGS_COUNT     369
+
+#define BATTLESTRINGS_ID_ADDER  12 // all battlestrings have its ID + 12, because first 5 are reserved
+
 #define STRINGID_INTROMSG       0
 #define STRINGID_INTROSENDOUT   1
 #define STRINGID_RETURNMON      2
@@ -264,8 +268,8 @@
 #define STRINGID_ITAPPEAREDCAUGHT           264
 #define STRINGID_AARGHALMOSTHADIT           265
 #define STRINGID_SHOOTSOCLOSE               266
-#define STRINGID_GOTCHAPKMNCAUGHTPLAYER     267
-#define STRINGID_GOTCHAPKMNCAUGHTWALLY      268
+#define STRINGID_GOTCHAPKMNCAUGHT           267
+#define STRINGID_GOTCHAPKMNCAUGHT2          268
 #define STRINGID_GIVENICKNAMECAPTURED       269
 #define STRINGID_PKMNSENTTOPC               270
 #define STRINGID_PKMNDATAADDEDTODEX         271
@@ -379,12 +383,6 @@
 #define STRINGID_TRAINER1WINTEXT            379
 #define STRINGID_TRAINER2WINTEXT            380
 
-#define BATTLESTRINGS_COUNT                 381
-
-// This is the string id that gBattleStringsTable starts with.
-// String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
-// and are instead handled explicitly by BufferStringBattle.
-#define BATTLESTRINGS_TABLE_START  STRINGID_TRAINER1LOSETEXT
 
 // The below IDs are all indexes into battle message tables,
 // used to determine which of a set of messages to print.
@@ -598,7 +596,5 @@
 #define B_MSG_REF_OPPONENT_WON       6
 #define B_MSG_REF_DRAW               7
 #define B_MSG_REF_COMMENCE_BATTLE    8
-
-#define NUM_TRAPPING_MOVES 6
 
 #endif // GUARD_CONSTANTS_BATTLE_STRING_IDS_H

@@ -297,7 +297,7 @@ const struct SpriteTemplate gWeatherBallRockDownSpriteTemplate =
 static void AnimFallingRock(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[3] != 0)
-        SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &sprite->x, &sprite->y);
+        SetAverageBattlerPositions(gBattleAnimTarget, 0, &sprite->x, &sprite->y);
 
     sprite->x += gBattleAnimArgs[0];
     sprite->y += 14;
@@ -313,7 +313,7 @@ static void AnimFallingRock(struct Sprite *sprite)
     sprite->data[5] = gBattleAnimArgs[2];
 
     StoreSpriteCallbackInData6(sprite, AnimFallingRock_Step);
-    sprite->callback = TranslateSpriteInEllipse;
+    sprite->callback = TranslateSpriteInEllipseOverDuration;
     sprite->callback(sprite);
 }
 
@@ -328,7 +328,7 @@ static void AnimFallingRock_Step(struct Sprite *sprite)
     sprite->data[4] = -24;
 
     StoreSpriteCallbackInData6(sprite, DestroySpriteAndMatrix);
-    sprite->callback = TranslateSpriteInEllipse;
+    sprite->callback = TranslateSpriteInEllipseOverDuration;
     sprite->callback(sprite);
 }
 
@@ -363,7 +363,7 @@ static void AnimRockFragment(struct Sprite *sprite)
 static void AnimParticleInVortex(struct Sprite *sprite)
 {
     if (gBattleAnimArgs[6] == ANIM_ATTACKER)
-        InitSpritePosToAnimAttacker(sprite, FALSE);
+        InitSpritePosToAnimAttacker(sprite, 0);
     else
         InitSpritePosToAnimTarget(sprite, FALSE);
 
@@ -409,8 +409,8 @@ void AnimTask_LoadSandstormBackground(u8 taskId)
 
     GetBattleAnimBg1Data(&animBg);
     AnimLoadCompressedBgGfx(animBg.bgId, gBattleAnimBgImage_Sandstorm, animBg.tilesOffset);
-    AnimLoadCompressedBgTilemapHandleContest(&animBg, gBattleAnimBgTilemap_Sandstorm, FALSE);
-    LoadCompressedPalette(gBattleAnimSpritePal_FlyingDirt, BG_PLTT_ID(animBg.paletteId), PLTT_SIZE_4BPP);
+    AnimLoadCompressedBgTilemapHandleContest(&animBg, gBattleAnimBgTilemap_Sandstorm, 0);
+    LoadCompressedPalette(gBattleAnimSpritePal_FlyingDirt, animBg.paletteId * 16, 32);
 
     if (gBattleAnimArgs[0] && GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
         var0 = 1;
@@ -544,7 +544,7 @@ static void AnimFlyingSandCrescent(struct Sprite *sprite)
 static void AnimRaiseSprite(struct Sprite *sprite)
 {
     StartSpriteAnim(sprite, gBattleAnimArgs[4]);
-    InitSpritePosToAnimAttacker(sprite, FALSE);
+    InitSpritePosToAnimAttacker(sprite, 0);
 
     sprite->data[0] = gBattleAnimArgs[3];
     sprite->data[2] = sprite->x;
@@ -558,15 +558,16 @@ void AnimTask_Rollout(u8 taskId)
 {
     u16 var0, var1, var2, var3;
     u8 rolloutCounter;
+    int var5;
     s16 pan1, pan2;
     struct Task *task;
 
     task = &gTasks[taskId];
 
-    var0 = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
-    var1 = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) + 24;
-    var2 = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
-    var3 = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y) + 24;
+    var0 = GetBattlerSpriteCoord(gBattleAnimAttacker, 2);
+    var1 = GetBattlerSpriteCoord(gBattleAnimAttacker, 1) + 24;
+    var2 = GetBattlerSpriteCoord(gBattleAnimTarget, 2);
+    var3 = GetBattlerSpriteCoord(gBattleAnimTarget, 1) + 24;
 
     if (BATTLE_PARTNER(gBattleAnimAttacker) == gBattleAnimTarget)
         var3 = var1;
@@ -581,7 +582,13 @@ void AnimTask_Rollout(u8 taskId)
     task->data[11] = 0;
     task->data[9] = 0;
     task->data[12] = 1;
-    task->data[10] = (task->data[8] / 8) - 1;
+
+    var5 = task->data[8];
+    if (var5 < 0)
+        var5 += 7;
+
+    task->data[10] = (var5 >> 3) - 1;
+
     task->data[2] = var0 * 8;
     task->data[3] = var1 * 8;
     task->data[4] = ((var2 - var0) * 8) / task->data[8];
@@ -589,8 +596,8 @@ void AnimTask_Rollout(u8 taskId)
     task->data[6] = 0;
     task->data[7] = 0;
 
-    pan1 = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
-    pan2 = BattleAnimAdjustPanning(SOUND_PAN_TARGET);
+    pan1 = BattleAnimAdjustPanning(-64);
+    pan2 = BattleAnimAdjustPanning(63);
 
     task->data[13] = pan1;
     task->data[14] = (pan2 - pan1) / task->data[8];
@@ -780,8 +787,8 @@ static void AnimRockBlastRock(struct Sprite *sprite)
 
 static void AnimRockScatter(struct Sprite *sprite)
 {
-    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X);
-    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y);
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimTarget, 0);
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimTarget, 1);
     sprite->x += gBattleAnimArgs[0];
     sprite->y += gBattleAnimArgs[1];
 

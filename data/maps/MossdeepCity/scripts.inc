@@ -20,7 +20,7 @@ MossdeepCity_OnTransition:
 MossdeepCity_EventScript_PokefanF::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_PokefanFMagmaGone
+	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_PokefanFMagmaGone
 	msgbox MossdeepCity_Text_SpaceCenterReceivedLetter, MSGBOX_DEFAULT
 	release
 	end
@@ -33,7 +33,7 @@ MossdeepCity_EventScript_PokefanFMagmaGone::
 MossdeepCity_EventScript_Sailor::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_HM_DIVE, MossdeepCity_EventScript_SailorMagmaGone
+	goto_if_set FLAG_RECEIVED_HM08, MossdeepCity_EventScript_SailorMagmaGone
 	msgbox MossdeepCity_Text_MossdeepTargetedByMagma, MSGBOX_DEFAULT
 	release
 	end
@@ -233,10 +233,12 @@ MossdeepCity_EventScript_KingsRockBoy::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_KINGS_ROCK, MossdeepCity_EventScript_ReceivedKingsRock
 	msgbox MossdeepCity_Text_WantKingsRockStevenGaveMe, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_EventScript_DeclineKingsRock
+	compare VAR_RESULT, NO
+	goto_if_eq MossdeepCity_EventScript_DeclineKingsRock
 	msgbox MossdeepCity_Text_YouCanKeepIt, MSGBOX_DEFAULT
 	giveitem ITEM_KINGS_ROCK
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_KINGS_ROCK
 	release
 	end
@@ -260,8 +262,10 @@ MossdeepCity_EventScript_Scott::
 	faceplayer
 	msgbox MossdeepCity_Text_ScottSomethingWrongWithTown, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, MossdeepCity_EventScript_ScottExitNorth
-	call_if_eq VAR_FACING, DIR_EAST, MossdeepCity_EventScript_ScottExitEast
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq MossdeepCity_EventScript_ScottExitNorth
+	compare VAR_FACING, DIR_EAST
+	call_if_eq MossdeepCity_EventScript_ScottExitEast
 	addvar VAR_SCOTT_STATE, 1
 	removeobject LOCALID_SCOTT
 	release
@@ -282,7 +286,7 @@ MossdeepCity_EventScript_ScottExitEast::
 MossdeepCity_Movement_PlayerWatchScottExit:
 	delay_16
 	delay_16
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 MossdeepCity_Movement_ScottExitNorth:

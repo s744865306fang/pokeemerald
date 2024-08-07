@@ -1,4 +1,4 @@
-@ NOTE: Route 109's sail to Dewford script references local IDs from Dewford's map.
+@ NOTE: Route 109's sail to Dewford script references local IDs from Dewford's map. 
 @  These are labeled in DewfordTown/scripts.inc
 
 Route109_MapScripts::
@@ -6,8 +6,8 @@ Route109_MapScripts::
 
 Route109_EventScript_StartDepartForDewford::
 	call EventScript_BackupMrBrineyLocation
-	setobjectsubpriority LOCALID_BRINEY_R109, MAP_ROUTE109, 0
-	setobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE109, 0
+	setobjectpriority LOCALID_BRINEY_R109, MAP_ROUTE109, 0
+	setobjectpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE109, 0
 	applymovement LOCALID_BRINEY_R109, Route109_Movement_BrineyEnterBoat
 	waitmovement 0
 	removeobject LOCALID_BRINEY_R109
@@ -50,7 +50,7 @@ Route109_EventScript_DoSailToDewford::
 	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
 	setobjectxyperm LOCALID_BRINEY_DEWFORD, 12, 8
 	addobject LOCALID_BRINEY_DEWFORD
-	setobjectsubpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN, 0
+	setobjectpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN, 0
 	applymovement LOCALID_BRINEY_DEWFORD, Route109_Movement_BrineyExitBoat
 	waitmovement 0
 	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
@@ -59,174 +59,174 @@ Route109_EventScript_DoSailToDewford::
 	msgbox DewfordTown_Text_BrineyLandedInDewford, MSGBOX_DEFAULT
 	closemessage
 	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
-	resetobjectsubpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE109
-	resetobjectsubpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN
+	resetobjectpriority OBJ_EVENT_ID_PLAYER, MAP_ROUTE109
+	resetobjectpriority LOCALID_BRINEY_DEWFORD, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_BRINEY_DEWFORD
 	release
 	end
 
 Route109_Movement_SailToDewford:
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	walk_down
 	walk_down
 	walk_fast_down
 	walk_fast_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
-	walk_faster_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
+	walk_fastest_down
 	walk_fast_down
 	walk_fast_down
 	walk_fast_left
 	walk_fast_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
-	walk_faster_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
+	walk_fastest_left
 	walk_fast_left
 	walk_fast_left
 	walk_fast_left
@@ -238,7 +238,7 @@ Route109_Movement_SailToDewford:
 	walk_fast_left
 	walk_left
 	walk_left
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 Route109_Movement_PlayerEnterBoatSouth:
@@ -250,7 +250,7 @@ Route109_Movement_PlayerExitBoat:
 	walk_down
 	walk_down
 	walk_left
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	step_end
 
 Route109_Movement_PlayerEnterBoatEast:
@@ -269,7 +269,7 @@ Route109_Movement_BrineyEnterBoat:
 
 Route109_Movement_BrineyExitBoat:
 	walk_down
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 Route109_EventScript_MrBriney::
@@ -282,7 +282,8 @@ Route109_EventScript_MrBriney::
 Route109_EventScript_HaveNotDeliveredDevonGood::
 	message Route109_Text_BrineySailToDewfordQuestion
 	msgbox Route109_Text_BrineySailToDewfordQuestion, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route109_EventScript_StayHere
+	compare VAR_RESULT, NO
+	goto_if_eq Route109_EventScript_StayHere
 	goto Route109_EventScript_SailToDewford
 	end
 
@@ -333,7 +334,8 @@ Route109_EventScript_SoftSandGirl::
 	goto_if_set FLAG_RECEIVED_SOFT_SAND, Route109_EventScript_AlreadyReceivedSoftSand
 	msgbox Route109_Text_YouCanHaveThis, MSGBOX_DEFAULT
 	giveitem ITEM_SOFT_SAND
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -360,7 +362,7 @@ Route109_EventScript_Zigzagoon::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ZIGZAGOON, CRY_MODE_NORMAL
+	playmoncry SPECIES_ZIGZAGOON, 0
 	msgbox Route109_Text_ZigzagoonCry, MSGBOX_DEFAULT
 	waitmoncry
 	release
@@ -397,7 +399,8 @@ Route109_EventScript_Edmond::
 Route109_EventScript_Ricky::
 	trainerbattle_single TRAINER_RICKY_1, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_RickyRematch
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route109_EventScript_RickyRematch
 	msgbox Route109_Text_RickyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -418,7 +421,8 @@ Route109_EventScript_RickyRematch::
 Route109_EventScript_Lola::
 	trainerbattle_single TRAINER_LOLA_1, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_LolaRematch
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route109_EventScript_LolaRematch
 	msgbox Route109_Text_LolaPostBattle, MSGBOX_DEFAULT
 	release
 	end

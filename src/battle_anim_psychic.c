@@ -468,7 +468,7 @@ static void AnimDefensiveWall(struct Sprite *sprite)
         sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y) + gBattleAnimArgs[1];
     }
 
-    sprite->data[0] = OBJ_PLTT_ID(IndexOfSpritePaletteTag(gBattleAnimArgs[2]));
+    sprite->data[0] = 256 + IndexOfSpritePaletteTag(gBattleAnimArgs[2]) * 16;
 
     if (isContest)
     {
@@ -493,7 +493,7 @@ static void AnimDefensiveWall_Step1(struct Sprite *sprite)
 
     if (IsBattlerSpriteVisible(battler))
         gSprites[gBattlerSpriteIds[battler]].invisible = TRUE;
-
+    
     battler = BATTLE_PARTNER(battler);
     if (IsBattlerSpriteVisible(battler))
         gSprites[gBattlerSpriteIds[battler]].invisible = TRUE;
@@ -570,7 +570,7 @@ static void AnimDefensiveWall_Step5(struct Sprite *sprite)
         if (IsBattlerSpriteVisible(battler))
             ResetBattleAnimBg(toBG2);
 
-        battler = BATTLE_PARTNER(battlerCopy);
+        battler = battlerCopy ^ 2;
         if (IsBattlerSpriteVisible(battler))
             ResetBattleAnimBg(toBG2 ^ var0);
     }
@@ -583,9 +583,9 @@ static void AnimWallSparkle(struct Sprite *sprite)
 {
     if (sprite->data[0] == 0)
     {
-        bool32 ignoreOffsets = gBattleAnimArgs[3];
+        int arg3 = gBattleAnimArgs[3];
         bool8 respectMonPicOffsets = FALSE;
-        if (!ignoreOffsets)
+        if (arg3 == 0)
             respectMonPicOffsets = TRUE;
 
         if (!IsContest() && IsDoubleBattle())
@@ -650,8 +650,8 @@ static void AnimQuestionMark(struct Sprite *sprite)
     if (GetBattlerSide(gBattleAnimAttacker) == B_SIDE_OPPONENT)
         x = -x;
 
-    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2) + x;
-    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET) + y;
+    sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, 2) + x;
+    sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, 3) + y;
 
     if (sprite->y < 16)
         sprite->y = 16;
@@ -818,7 +818,7 @@ static void AnimTask_ImprisonOrbs_Step(u8 taskId)
         {
             for (i = 8; i < 13; i++)
             {
-                if (task->data[i] != MAX_SPRITES)
+                if (task->data[i] != 64)
                     DestroySprite(&gSprites[task->data[i]]);
             }
 
@@ -918,7 +918,7 @@ static void AnimTask_SkillSwap_Step(u8 taskId)
         {
             task->data[1] = 0;
             spriteId = CreateSprite(&gSkillSwapOrbSpriteTemplate, task->data[11], task->data[12], 0);
-            if (spriteId != MAX_SPRITES)
+            if (spriteId != 64)
             {
                 gSprites[spriteId].data[0] = 16;
                 gSprites[spriteId].data[2] = task->data[13];
@@ -957,7 +957,7 @@ void AnimTask_ExtrasensoryDistortion(u8 taskId)
     u8 yOffset;
     struct ScanlineEffectParams scanlineParams;
     struct Task *task = &gTasks[taskId];
-
+    
     yOffset = GetBattlerYCoordWithElevation(gBattleAnimTarget);
     task->data[14] = yOffset - 32;
 
@@ -997,10 +997,12 @@ void AnimTask_ExtrasensoryDistortion(u8 taskId)
         scanlineParams.dmaDest = &REG_BG2HOFS;
     }
 
-    for (i = task->data[14]; i <= task->data[14] + 64; i++)
+    i = task->data[14];
+    while (i <= task->data[14] + 64)
     {
         gScanlineEffectRegBuffers[0][i] = task->data[10];
         gScanlineEffectRegBuffers[1][i] = task->data[10];
+        i++;
     }
 
     scanlineParams.dmaControl = SCANLINE_EFFECT_DMACNT_16BIT;
@@ -1054,7 +1056,7 @@ void AnimTask_TransparentCloneGrowAndShrink(u8 taskId)
     s16 spriteId;
     s16 matrixNum;
     struct Task *task = &gTasks[taskId];
-
+    
     matrixNum = AllocOamMatrix();
     if (matrixNum == 0xFF)
     {
@@ -1106,7 +1108,7 @@ static void AnimTask_TransparentCloneGrowAndShrink_Step(u8 taskId)
             task->data[0]++;
         break;
     case 2:
-        DestroySpriteWithActiveSheet(&gSprites[task->data[15]]);
+        obj_delete_but_dont_free_vram(&gSprites[task->data[15]]);
         task->data[0]++;
         break;
     case 3:
@@ -1135,7 +1137,7 @@ static void AnimPsychoBoost(struct Sprite *sprite)
     case 1:
         if (sprite->affineAnimEnded)
         {
-            PlaySE12WithPanning(SE_M_TELEPORT, BattleAnimAdjustPanning(SOUND_PAN_ATTACKER));
+            PlaySE12WithPanning(SE_M_TELEPORT, BattleAnimAdjustPanning(-64));
             ChangeSpriteAffineAnim(sprite, 1);
             sprite->data[0]++;
         }

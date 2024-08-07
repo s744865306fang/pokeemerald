@@ -4,7 +4,7 @@ AbandonedShip_HiddenFloorCorridors_MapScripts::
 	.byte 0
 
 AbandonedShip_HiddenFloorCorridors_OnResume:
-	setdivewarp MAP_ABANDONED_SHIP_UNDERWATER1, 5, 4
+	setdivewarp MAP_ABANDONED_SHIP_UNDERWATER1, 255, 5, 4
 	end
 
 AbandonedShip_HiddenFloorCorridors_OnLoad:
@@ -19,42 +19,43 @@ AbandonedShip_HiddenFloorCorridors_OnLoad:
 	end
 
 AbandonedShip_HiddenFloorCorridors_EventScript_UnlockRoom1::
-	setmetatile 3, 8, METATILE_InsideShip_IntactDoor_Bottom_Unlocked, TRUE
+	setmetatile 3, 8, METATILE_InsideShip_IntactDoor_Bottom_Unlocked, 1
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_UnlockRoom2::
-	setmetatile 6, 8, METATILE_InsideShip_IntactDoor_Bottom_Unlocked, TRUE
+	setmetatile 6, 8, METATILE_InsideShip_IntactDoor_Bottom_Unlocked, 1
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_UnlockRoom4::
-	setmetatile 3, 3, METATILE_InsideShip_DoorIndent_Unlocked, FALSE
+	setmetatile 3, 3, METATILE_InsideShip_DoorIndent_Unlocked, 0
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_UnlockRoom6::
-	setmetatile 9, 3, METATILE_InsideShip_DoorIndent_Unlocked, FALSE
+	setmetatile 9, 3, METATILE_InsideShip_DoorIndent_Unlocked, 0
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_LockRoom1::
-	setmetatile 3, 8, METATILE_InsideShip_IntactDoor_Bottom_Locked, TRUE
+	setmetatile 3, 8, METATILE_InsideShip_IntactDoor_Bottom_Locked, 1
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_LockRoom2::
-	setmetatile 6, 8, METATILE_InsideShip_IntactDoor_Bottom_Locked, TRUE
+	setmetatile 6, 8, METATILE_InsideShip_IntactDoor_Bottom_Locked, 1
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_LockRoom4::
-	setmetatile 3, 3, METATILE_InsideShip_DoorIndent_Locked, FALSE
+	setmetatile 3, 3, METATILE_InsideShip_DoorIndent_Locked, 0
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_LockRoom6::
-	setmetatile 9, 3, METATILE_InsideShip_DoorIndent_Locked, FALSE
+	setmetatile 9, 3, METATILE_InsideShip_DoorIndent_Locked, 0
 	return
 
 AbandonedShip_HiddenFloorCorridors_EventScript_Room1Door::
 	lockall
 	goto_if_set FLAG_USED_ROOM_1_KEY, AbandonedShip_HiddenFloorCorridors_EventScript_TheDoorIsOpen
-	checkitem ITEM_ROOM_1_KEY
-	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_HiddenFloorCorridors_EventScript_Rm1IsLocked
+	checkitem ITEM_ROOM_1_KEY, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq AbandonedShip_HiddenFloorCorridors_EventScript_Rm1IsLocked
 	msgbox AbandonedShip_HiddenFloorCorridors_Text_InsertedKey, MSGBOX_DEFAULT
 	playse SE_PIN
 	removeitem ITEM_ROOM_1_KEY
@@ -67,8 +68,9 @@ AbandonedShip_HiddenFloorCorridors_EventScript_Room1Door::
 AbandonedShip_HiddenFloorCorridors_EventScript_Room2Door::
 	lockall
 	goto_if_set FLAG_USED_ROOM_2_KEY, AbandonedShip_HiddenFloorCorridors_EventScript_TheDoorIsOpen
-	checkitem ITEM_ROOM_2_KEY
-	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_HiddenFloorCorridors_EventScript_Rm2IsLocked
+	checkitem ITEM_ROOM_2_KEY, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq AbandonedShip_HiddenFloorCorridors_EventScript_Rm2IsLocked
 	msgbox AbandonedShip_HiddenFloorCorridors_Text_InsertedKey, MSGBOX_DEFAULT
 	playse SE_PIN
 	removeitem ITEM_ROOM_2_KEY
@@ -81,8 +83,9 @@ AbandonedShip_HiddenFloorCorridors_EventScript_Room2Door::
 AbandonedShip_HiddenFloorCorridors_EventScript_Room4Door::
 	lockall
 	goto_if_set FLAG_USED_ROOM_4_KEY, AbandonedShip_HiddenFloorCorridors_EventScript_TheDoorIsOpen
-	checkitem ITEM_ROOM_4_KEY
-	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_HiddenFloorCorridors_EventScript_Rm4IsLocked
+	checkitem ITEM_ROOM_4_KEY, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq AbandonedShip_HiddenFloorCorridors_EventScript_Rm4IsLocked
 	msgbox AbandonedShip_HiddenFloorCorridors_Text_InsertedKey, MSGBOX_DEFAULT
 	playse SE_PIN
 	removeitem ITEM_ROOM_4_KEY
@@ -95,8 +98,9 @@ AbandonedShip_HiddenFloorCorridors_EventScript_Room4Door::
 AbandonedShip_HiddenFloorCorridors_EventScript_Room6Door::
 	lockall
 	goto_if_set FLAG_USED_ROOM_6_KEY, AbandonedShip_HiddenFloorCorridors_EventScript_TheDoorIsOpen
-	checkitem ITEM_ROOM_6_KEY
-	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_HiddenFloorCorridors_EventScript_Rm6IsLocked
+	checkitem ITEM_ROOM_6_KEY, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq AbandonedShip_HiddenFloorCorridors_EventScript_Rm6IsLocked
 	msgbox AbandonedShip_HiddenFloorCorridors_Text_InsertedKey, MSGBOX_DEFAULT
 	playse SE_PIN
 	removeitem ITEM_ROOM_6_KEY

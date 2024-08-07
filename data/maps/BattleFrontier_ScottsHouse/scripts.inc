@@ -35,7 +35,8 @@ BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols::
 	goto_if_unset FLAG_SYS_PYRAMID_SILVER, BattleFrontier_ScottsHouse_EventScript_CheckGiveShield
 	msgbox BattleFrontier_ScottsHouse_Text_YouveCollectedAllSilverSymbols, MSGBOX_DEFAULT
 	giveitem ITEM_LANSAT_BERRY
-	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
+	compare VAR_RESULT, FALSE
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
 	setflag FLAG_COLLECTED_ALL_SILVER_SYMBOLS
 	setflag FLAG_TEMP_4
 	release
@@ -51,7 +52,8 @@ BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols::
 	goto_if_unset FLAG_SYS_PYRAMID_GOLD, BattleFrontier_ScottsHouse_EventScript_CheckGiveShield
 	msgbox BattleFrontier_ScottsHouse_Text_YouveCollectedAllGoldSymbols, MSGBOX_DEFAULT
 	giveitem ITEM_STARF_BERRY
-	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
+	compare VAR_RESULT, FALSE
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
 	setflag FLAG_COLLECTED_ALL_GOLD_SYMBOLS
 	setflag FLAG_TEMP_4
 	release
@@ -69,8 +71,10 @@ BattleFrontier_ScottsHouse_EventScript_GivenBerry::
 
 BattleFrontier_ScottsHouse_EventScript_RandomComment::
 	random 3
-	goto_if_eq VAR_RESULT, 1, BattleFrontier_ScottsHouse_EventScript_FrontierBrainComment
-	goto_if_eq VAR_RESULT, 2, BattleFrontier_ScottsHouse_EventScript_ArtisanCaveComment
+	compare VAR_RESULT, 1
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_FrontierBrainComment
+	compare VAR_RESULT, 2
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_ArtisanCaveComment
 	msgbox BattleFrontier_ScottsHouse_Text_WhyIGoSeekingTrainers, MSGBOX_DEFAULT
 	release
 	end
@@ -89,17 +93,20 @@ BattleFrontier_ScottsHouse_EventScript_CheckGiveSilverShield::
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_50
 	tower_get TOWER_DATA_WIN_STREAK
-	goto_if_ge VAR_RESULT, 50, BattleFrontier_ScottsHouse_EventScript_GiveSilverShield
+	compare VAR_RESULT, 50
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_GiveSilverShield
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_OPEN
 	tower_get TOWER_DATA_WIN_STREAK
-	goto_if_ge VAR_RESULT, 50, BattleFrontier_ScottsHouse_EventScript_GiveSilverShield
+	compare VAR_RESULT, 50
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_GiveSilverShield
 	goto BattleFrontier_ScottsHouse_EventScript_RandomComment
 	end
 
 BattleFrontier_ScottsHouse_EventScript_GiveSilverShield::
 	msgbox BattleFrontier_ScottsHouse_Text_Beat50TrainersInARow, MSGBOX_DEFAULT
 	givedecoration DECOR_SILVER_SHIELD
-	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
+	compare VAR_RESULT, FALSE
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
 	setflag FLAG_RECEIVED_SILVER_SHIELD
 	setflag FLAG_TEMP_3
 	goto BattleFrontier_ScottsHouse_EventScript_GivenShield
@@ -119,17 +126,20 @@ BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield::
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_50
 	tower_get TOWER_DATA_WIN_STREAK
-	goto_if_ge VAR_RESULT, 100, BattleFrontier_ScottsHouse_EventScript_GiveGoldShield
+	compare VAR_RESULT, 100
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_GiveGoldShield
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_LVL_OPEN
 	tower_get TOWER_DATA_WIN_STREAK
-	goto_if_ge VAR_RESULT, 100, BattleFrontier_ScottsHouse_EventScript_GiveGoldShield
+	compare VAR_RESULT, 100
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_GiveGoldShield
 	goto BattleFrontier_ScottsHouse_EventScript_RandomComment
 	end
 
 BattleFrontier_ScottsHouse_EventScript_GiveGoldShield::
 	msgbox BattleFrontier_ScottsHouse_Text_Beat100TrainersInARow, MSGBOX_DEFAULT
 	givedecoration DECOR_GOLD_SHIELD
-	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
+	compare VAR_RESULT, FALSE
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
 	setflag FLAG_RECEIVED_GOLD_SHIELD
 	setflag FLAG_TEMP_3
 	goto BattleFrontier_ScottsHouse_EventScript_GivenShield
@@ -144,40 +154,47 @@ BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier::
 	msgbox BattleFrontier_ScottsHouse_Text_WelcomeToBattleFrontier, MSGBOX_DEFAULT
 	closemessage
 	delay 30
-	call_if_eq VAR_FACING, DIR_NORTH, BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayNorth
-	call_if_eq VAR_FACING, DIR_SOUTH, BattleFrontier_ScottsHouse_EventScript_ScottFaceAwaySouth
-	call_if_eq VAR_FACING, DIR_EAST, BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayEast
-	call_if_eq VAR_FACING, DIR_WEST, BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayWest
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayNorth
+	compare VAR_FACING, DIR_SOUTH
+	call_if_eq BattleFrontier_ScottsHouse_EventScript_ScottFaceAwaySouth
+	compare VAR_FACING, DIR_EAST
+	call_if_eq BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayEast
+	compare VAR_FACING, DIR_WEST
+	call_if_eq BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayWest
 	msgbox BattleFrontier_ScottsHouse_Text_HowMuchEffortItTookToMakeReal, MSGBOX_DEFAULT
 	applymovement LOCALID_SCOTT, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox BattleFrontier_ScottsHouse_Text_HaveThisAsMementoOfOurPathsCrossing, MSGBOX_DEFAULT
-	goto_if_eq VAR_SCOTT_STATE, 13, BattleFrontier_ScottsHouse_EventScript_Give4BattlePoints
-	goto_if_ge VAR_SCOTT_STATE, 9, BattleFrontier_ScottsHouse_EventScript_Give3BattlePoints
-	goto_if_ge VAR_SCOTT_STATE, 6, BattleFrontier_ScottsHouse_EventScript_Give2BattlePoints
+	compare VAR_SCOTT_STATE, 13
+	goto_if_eq BattleFrontier_ScottsHouse_EventScript_Give4BattlePoints
+	compare VAR_SCOTT_STATE, 9
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give3BattlePoints
+	compare VAR_SCOTT_STATE, 6
+	goto_if_ge BattleFrontier_ScottsHouse_EventScript_Give2BattlePoints
 	goto BattleFrontier_ScottsHouse_EventScript_Give1BattlePoint
 	end
 
 BattleFrontier_ScottsHouse_EventScript_Give4BattlePoints::
-	buffernumberstring STR_VAR_1, 4
+	buffernumberstring 0, 4
 	setvar VAR_0x8004, 4
 	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
 	end
 
 BattleFrontier_ScottsHouse_EventScript_Give3BattlePoints::
-	buffernumberstring STR_VAR_1, 3
+	buffernumberstring 0, 3
 	setvar VAR_0x8004, 3
 	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
 	end
 
 BattleFrontier_ScottsHouse_EventScript_Give2BattlePoints::
-	buffernumberstring STR_VAR_1, 2
+	buffernumberstring 0, 2
 	setvar VAR_0x8004, 2
 	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
 	end
 
 BattleFrontier_ScottsHouse_EventScript_Give1BattlePoint::
-	buffernumberstring STR_VAR_1, 1
+	buffernumberstring 0, 1
 	setvar VAR_0x8004, 1
 	goto BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints
 	end
@@ -192,22 +209,22 @@ BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints::
 	end
 
 BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayNorth::
-	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	return
 
 BattleFrontier_ScottsHouse_EventScript_ScottFaceAwaySouth::
-	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFastestDown
 	waitmovement 0
 	return
 
 BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayEast::
-	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	return
 
 BattleFrontier_ScottsHouse_EventScript_ScottFaceAwayWest::
-	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	return
 

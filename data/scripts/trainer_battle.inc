@@ -13,7 +13,8 @@ EventScript_TryDoNormalTrainerBattle::
 	applymovement VAR_LAST_TALKED, Movement_RevealTrainer
 	waitmovement 0
 	specialvar VAR_RESULT, GetTrainerFlag
-	goto_if_ne VAR_RESULT, FALSE, EventScript_NoNormalTrainerBattle
+	compare VAR_RESULT, FALSE
+	goto_if_ne EventScript_NoNormalTrainerBattle
 	special PlayTrainerEncounterMusic
 	special SetTrainerFacingDirection
 	goto EventScript_ShowTrainerIntroMsg
@@ -26,9 +27,11 @@ EventScript_TryDoDoubleTrainerBattle::
 	faceplayer
 	call EventScript_RevealTrainer
 	specialvar VAR_RESULT, GetTrainerFlag
-	goto_if_ne VAR_RESULT, FALSE, EventScript_NoDoubleTrainerBattle
+	compare VAR_RESULT, FALSE
+	goto_if_ne EventScript_NoDoubleTrainerBattle
 	special HasEnoughMonsForDoubleBattle
-	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, EventScript_NotEnoughMonsForDoubleBattle
+	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
+	goto_if_ne EventScript_NotEnoughMonsForDoubleBattle
 	special PlayTrainerEncounterMusic
 	special SetTrainerFacingDirection
 	goto EventScript_ShowTrainerIntroMsg
@@ -47,13 +50,14 @@ EventScript_DoNoIntroTrainerBattle::
 	applymovement VAR_LAST_TALKED, Movement_RevealTrainer
 	waitmovement 0
 	special PlayTrainerEncounterMusic
-	dotrainerbattle
+	trainerbattlebegin
 	gotopostbattlescript
 
 EventScript_TryDoRematchBattle::
 	call EventScript_RevealTrainer
 	specialvar VAR_RESULT, IsTrainerReadyForRematch
-	goto_if_eq VAR_RESULT, FALSE, EventScript_NoRematchTrainerBattle
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_NoRematchTrainerBattle
 	special PlayTrainerEncounterMusic
 	special SetTrainerFacingDirection
 	special ShowTrainerIntroSpeech
@@ -69,9 +73,11 @@ EventScript_NoRematchTrainerBattle::
 
 EventScript_TryDoDoubleRematchBattle::
 	specialvar VAR_RESULT, IsTrainerReadyForRematch
-	goto_if_eq VAR_RESULT, FALSE, EventScript_NoDoubleRematchTrainerBattle
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_NoDoubleRematchTrainerBattle
 	special HasEnoughMonsForDoubleBattle
-	goto_if_ne VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS, EventScript_NotEnoughMonsForDoubleRematchBattle
+	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
+	goto_if_ne EventScript_NotEnoughMonsForDoubleRematchBattle
 	special PlayTrainerEncounterMusic
 	special SetTrainerFacingDirection
 	special ShowTrainerIntroSpeech
@@ -106,25 +112,31 @@ EventScript_ShowTrainerIntroMsg::
 	waitmessage
 	waitbuttonpress
 	special TryPrepareSecondApproachingTrainer
-	goto_if_eq VAR_RESULT, TRUE, EventScript_TrainerApproach
+	compare VAR_RESULT, TRUE
+	goto_if_eq EventScript_TrainerApproach
 	goto EventScript_DoTrainerBattle
 
 EventScript_DoTrainerBattle::
-	dotrainerbattle
+	trainerbattlebegin
 	@ Below battle mode check only needed in FRLG
 	specialvar VAR_RESULT, GetTrainerBattleMode
-	goto_if_eq VAR_RESULT, TRAINER_BATTLE_SINGLE, EventScript_EndTrainerBattle
-	goto_if_eq VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT, EventScript_EndTrainerBattle
-	goto_if_eq VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC, EventScript_EndTrainerBattle
-	goto_if_eq VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE, EventScript_EndTrainerBattle
-	goto_if_eq VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC, EventScript_EndTrainerBattle
+	compare VAR_RESULT, TRAINER_BATTLE_SINGLE
+	goto_if_eq EventScript_EndTrainerBattle
+	compare VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT
+	goto_if_eq EventScript_EndTrainerBattle
+	compare VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC
+	goto_if_eq EventScript_EndTrainerBattle
+	compare VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE
+	goto_if_eq EventScript_EndTrainerBattle
+	compare VAR_RESULT, TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE_NO_MUSIC
+	goto_if_eq EventScript_EndTrainerBattle
 EventScript_EndTrainerBattle::
 	gotobeatenscript
 	releaseall
 	end
 
 Std_MsgboxAutoclose::
-	message NULL
+	message 0x0
 	waitmessage
 	waitbuttonpress
 	release

@@ -7,7 +7,8 @@ RustboroCity_DevonCorp_3F_MapScripts::
 	.byte 0
 
 RustboroCity_DevonCorp_3F_OnTransition:
-	call_if_eq VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
+	compare VAR_DEVON_CORP_3F_STATE, 0
+	call_if_eq RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
 	end
 
 RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos::
@@ -77,7 +78,7 @@ RustboroCity_DevonCorp_3F_Movement_Unused:
 	walk_up
 	walk_up
 	walk_up
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident:
@@ -94,12 +95,12 @@ RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident:
 	walk_right
 	walk_right
 	walk_right
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 RustboroCity_DevonCorp_3F_Movement_EmployeeFaceDesk:
 	delay_16
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 RustboroCity_DevonCorp_3F_Movement_EmployeeWalkOffscreen:
@@ -145,7 +146,7 @@ RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
 	delay_16
 	walk_down
 	walk_down
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	step_end
 
 RustboroCity_DevonCorp_3F_EventScript_MrStone::
@@ -163,7 +164,8 @@ RustboroCity_DevonCorp_3F_EventScript_MrStone::
 RustboroCity_DevonCorp_3F_EventScript_GiveExpShare::
 	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
 	giveitem ITEM_EXP_SHARE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_EXP_SHARE
 	msgbox RustboroCity_DevonCorp_3F_Text_ExplainExpShare, MSGBOX_DEFAULT
 	closemessage

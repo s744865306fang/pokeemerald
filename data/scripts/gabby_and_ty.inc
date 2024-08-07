@@ -199,10 +199,13 @@ GabbyAndTy_EventScript_TyBattle6::
 GabbyAndTy_EventScript_FirstInterview::
 	special GabbyAndTyBeforeInterview
 	special GetGabbyAndTyLocalIds
-	call_if_eq VAR_FACING, DIR_NORTH, GabbyAndTy_EventScript_FacePlayerNorth
-	call_if_eq VAR_FACING, DIR_SOUTH, GabbyAndTy_EventScript_FacePlayerSouth
-	call_if_eq VAR_FACING, DIR_EAST, GabbyAndTy_EventScript_FacePlayerEast
-	goto_if_set FLAG_TEMP_SKIP_GABBY_INTERVIEW, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq GabbyAndTy_EventScript_FacePlayerNorth
+	compare VAR_FACING, DIR_SOUTH
+	call_if_eq GabbyAndTy_EventScript_FacePlayerSouth
+	compare VAR_FACING, DIR_EAST
+	call_if_eq GabbyAndTy_EventScript_FacePlayerEast
+	goto_if_set FLAG_TEMP_1, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
 	msgbox GabbyAndTy_Text_WhoAreYouInterview, MSGBOX_YESNO
 	goto GabbyAndTy_EventScript_Interview
 	end
@@ -214,25 +217,29 @@ GabbyAndTy_EventScript_FacePlayerNorth::
 
 GabbyAndTy_EventScript_FacePlayerSouth::
 	applymovement VAR_0x8004, GabbyAndTy_Movement_WalkInPlaceUp
-	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFasterUp
+	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	return
 
 GabbyAndTy_EventScript_FacePlayerEast::
 	applymovement VAR_0x8004, GabbyAndTy_Movement_WalkInPlaceLeft
-	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFasterLeft
+	applymovement VAR_0x8005, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	return
 
 GabbyAndTy_EventScript_RequestInterview::
 	special GabbyAndTyBeforeInterview
 	special GetGabbyAndTyLocalIds
-	call_if_eq VAR_FACING, DIR_NORTH, GabbyAndTy_EventScript_FacePlayerNorth
-	call_if_eq VAR_FACING, DIR_SOUTH, GabbyAndTy_EventScript_FacePlayerSouth
-	call_if_eq VAR_FACING, DIR_EAST, GabbyAndTy_EventScript_FacePlayerEast
-	goto_if_set FLAG_TEMP_SKIP_GABBY_INTERVIEW, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
+	compare VAR_FACING, DIR_NORTH
+	call_if_eq GabbyAndTy_EventScript_FacePlayerNorth
+	compare VAR_FACING, DIR_SOUTH
+	call_if_eq GabbyAndTy_EventScript_FacePlayerSouth
+	compare VAR_FACING, DIR_EAST
+	call_if_eq GabbyAndTy_EventScript_FacePlayerEast
+	goto_if_set FLAG_TEMP_1, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
 	specialvar VAR_RESULT, GabbyAndTyGetLastQuote
-	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DidntInterviewLastTime
+	compare VAR_RESULT, 0
+	goto_if_eq GabbyAndTy_EventScript_DidntInterviewLastTime
 	msgbox GabbyAndTy_Text_QuoteFromLastInterview, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, GabbyAndTyGetLastBattleTrivia
 	switch VAR_RESULT
@@ -286,22 +293,24 @@ GabbyAndTy_EventScript_RequestInterviewLostAMon::
 	end
 
 GabbyAndTy_EventScript_Interview::
-	goto_if_eq VAR_RESULT, NO, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
+	compare VAR_RESULT, NO
+	goto_if_eq GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
 	msgbox GabbyAndTy_Text_DescribeYourFeelings, MSGBOX_DEFAULT
 	setvar VAR_0x8004, EASY_CHAT_TYPE_GABBY_AND_TY
 	call Common_ShowEasyChatScreen
 	lock
 	faceplayer
-	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
+	compare VAR_RESULT, 0
+	goto_if_eq GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
 	msgbox GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT
 	special GabbyAndTyAfterInterview
-	setflag FLAG_TEMP_SKIP_GABBY_INTERVIEW
+	setflag FLAG_TEMP_1
 	release
 	end
 
 GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut::
 	msgbox GabbyAndTy_Text_DontGiveUpKeepingEyeOut, MSGBOX_DEFAULT
-	setflag FLAG_TEMP_SKIP_GABBY_INTERVIEW
+	setflag FLAG_TEMP_1
 	release
 	end
 

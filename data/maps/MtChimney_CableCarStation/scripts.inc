@@ -6,7 +6,8 @@ MtChimney_CableCarStation_MapScripts::
 	.byte 0
 
 MtChimney_CableCarStation_OnTransition:
-	call_if_eq VAR_CABLE_CAR_STATION_STATE, 1, MtChimney_CableCarStation_EventScript_MoveAttendantAside
+	compare VAR_CABLE_CAR_STATION_STATE, 1
+	call_if_eq MtChimney_CableCarStation_EventScript_MoveAttendantAside
 	end
 
 MtChimney_CableCarStation_EventScript_MoveAttendantAside::
@@ -33,8 +34,10 @@ MtChimney_CableCarStation_EventScript_Attendant::
 	lock
 	faceplayer
 	msgbox MtChimney_CableCarStation_Text_CableCarReadyGetOn, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, MtChimney_CableCarStation_EventScript_RideCableCar
-	goto_if_eq VAR_RESULT, NO, MtChimney_CableCarStation_EventScript_DeclineRide
+	compare VAR_RESULT, YES
+	goto_if_eq MtChimney_CableCarStation_EventScript_RideCableCar
+	compare VAR_RESULT, NO
+	goto_if_eq MtChimney_CableCarStation_EventScript_DeclineRide
 	end
 
 MtChimney_CableCarStation_EventScript_RideCableCar::
@@ -61,7 +64,7 @@ MtChimney_CableCarStation_Movement_LeadPlayerToCableCar:
 	walk_up
 	walk_up
 	walk_left
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	step_end
 
 MtChimney_CableCarStation_Movement_FollowPlayerOutFromCableCar:

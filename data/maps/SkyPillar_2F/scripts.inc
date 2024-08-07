@@ -5,7 +5,8 @@ SkyPillar_2F_MapScripts::
 	.byte 0
 
 SkyPillar_2F_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_2F_EventScript_CleanFloor
+	compare VAR_SKY_PILLAR_STATE, 2
+	call_if_lt SkyPillar_2F_EventScript_CleanFloor
 	copyvar VAR_ICE_STEP_COUNT, 1
 	end
 
@@ -15,6 +16,6 @@ SkyPillar_2F_EventScript_CleanFloor::
 
 SkyPillar_2F_SetHoleWarp:
 	setstepcallback STEP_CB_CRACKED_FLOOR
-	setholewarp MAP_SKY_PILLAR_1F
+	setholewarp MAP_SKY_PILLAR_1F, 255, 0, 0
 	end
 

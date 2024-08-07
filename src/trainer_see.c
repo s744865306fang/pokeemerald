@@ -59,9 +59,9 @@ bool8 gTrainerApproachedPlayer;
 EWRAM_DATA u8 gApproachingTrainerId = 0;
 
 // const rom data
-static const u8 sEmotion_ExclamationMarkGfx[] = INCBIN_U8("graphics/field_effects/pics/emotion_exclamation.4bpp");
-static const u8 sEmotion_QuestionMarkGfx[] = INCBIN_U8("graphics/field_effects/pics/emotion_question.4bpp");
-static const u8 sEmotion_HeartGfx[] = INCBIN_U8("graphics/field_effects/pics/emotion_heart.4bpp");
+static const u8 sEmotion_ExclamationMarkGfx[] = INCBIN_U8("graphics/misc/emotion_exclamation.4bpp");
+static const u8 sEmotion_QuestionMarkGfx[] = INCBIN_U8("graphics/misc/emotion_question.4bpp");
+static const u8 sEmotion_HeartGfx[] = INCBIN_U8("graphics/misc/emotion_heart.4bpp");
 
 static u8 (*const sDirectionalApproachDistanceFuncs[])(struct ObjectEvent *trainerObj, s16 range, s16 x, s16 y) =
 {
@@ -115,7 +115,7 @@ static const struct OamData sOamData_Icons =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
+    .mosaic = 0,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(16x16),
     .x = 0,
@@ -131,11 +131,11 @@ static const struct SpriteFrameImage sSpriteImageTable_ExclamationQuestionMark[]
 {
     {
         .data = sEmotion_ExclamationMarkGfx,
-        .size = sizeof(sEmotion_ExclamationMarkGfx)
+        .size = 0x80
     },
     {
         .data = sEmotion_QuestionMarkGfx,
-        .size = sizeof(sEmotion_QuestionMarkGfx)
+        .size = 0x80
     }
 };
 
@@ -143,7 +143,7 @@ static const struct SpriteFrameImage sSpriteImageTable_HeartIcon[] =
 {
     {
         .data = sEmotion_HeartGfx,
-        .size = sizeof(sEmotion_HeartGfx)
+        .size = 0x80
     }
 };
 
@@ -167,8 +167,8 @@ static const union AnimCmd *const sSpriteAnimTable_Icons[] =
 
 static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
 {
-    .tileTag = TAG_NONE,
-    .paletteTag = TAG_NONE,
+    .tileTag = 0xffff,
+    .paletteTag = 0xffff,
     .oam = &sOamData_Icons,
     .anims = sSpriteAnimTable_Icons,
     .images = sSpriteImageTable_ExclamationQuestionMark,
@@ -178,7 +178,7 @@ static const struct SpriteTemplate sSpriteTemplate_ExclamationQuestionMark =
 
 static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
 {
-    .tileTag = TAG_NONE,
+    .tileTag = 0xffff,
     .paletteTag = FLDEFF_PAL_TAG_GENERAL_0,
     .oam = &sOamData_Icons,
     .anims = sSpriteAnimTable_Icons,
@@ -213,7 +213,7 @@ bool8 CheckForTrainersWantingBattle(void)
 
         if (gNoOfApproachingTrainers > 1)
             break;
-        if (GetMonsStateToDoubles_2() != PLAYER_HAS_TWO_USABLE_MONS) // one trainer found and cant have a double battle
+        if (GetMonsStateToDoubles_2() != 0) // one trainer found and cant have a double battle
             break;
     }
 
@@ -280,7 +280,7 @@ static u8 CheckTrainer(u8 objectEventId)
             || scriptPtr[1] == TRAINER_BATTLE_REMATCH_DOUBLE
             || scriptPtr[1] == TRAINER_BATTLE_CONTINUE_SCRIPT_DOUBLE)
         {
-            if (GetMonsStateToDoubles_2() != PLAYER_HAS_TWO_USABLE_MONS)
+            if (GetMonsStateToDoubles_2() != 0)
                 return 0;
 
             numTrainers = 2;
@@ -367,6 +367,8 @@ static u8 GetTrainerApproachDistanceEast(struct ObjectEvent *trainerObj, s16 ran
         return 0;
 }
 
+#define COLLISION_MASK (~1)
+
 static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 approachDistance, u8 direction)
 {
     s16 x, y;
@@ -383,9 +385,8 @@ static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 ap
     MoveCoords(direction, &x, &y);
     for (i = 0; i < approachDistance - 1; i++, MoveCoords(direction, &x, &y))
     {
-        // Check for collisions on approach, ignoring the "out of range" collision for regular movement
         collision = GetCollisionFlagsAtCoords(trainerObj, x, y, direction);
-        if (collision != 0 && (collision & ~(1 << (COLLISION_OUTSIDE_RANGE - 1))))
+        if (collision != 0 && (collision & COLLISION_MASK))
             return 0;
     }
 
@@ -522,7 +523,7 @@ static bool8 PlayerFaceApproachingTrainer(u8 taskId, struct Task *task, struct O
     if (ObjectEventIsMovementOverridden(playerObj) && !ObjectEventClearHeldMovementIfFinished(playerObj))
         return FALSE;
 
-    CancelPlayerForcedMovement();
+    sub_808BCE8();
     ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], GetFaceDirectionMovementAction(GetOppositeDirection(trainerObj->facingDirection)));
     task->tFuncId++; // TRSEE_PLAYER_FACE_WAIT
     return FALSE;
@@ -595,7 +596,7 @@ static bool8 JumpInPlaceBuriedTrainer(u8 taskId, struct Task *task, struct Objec
     if (gSprites[task->tOutOfAshSpriteId].animCmdIndex == 2)
     {
         trainerObj->fixedPriority = 0;
-        trainerObj->triggerGroundEffectsOnMove = TRUE;
+        trainerObj->triggerGroundEffectsOnMove = 1;
 
         sprite = &gSprites[trainerObj->spriteId];
         sprite->oam.priority = 2;
@@ -627,7 +628,7 @@ static void Task_SetBuriedTrainerMovement(u8 taskId)
     struct Task *task = &gTasks[taskId];
     struct ObjectEvent *objEvent;
 
-    LoadWordFromTwoHalfwords((u16*) &task->tObjEvent, (u32 *)&objEvent);
+    LoadWordFromTwoHalfwords(&task->tObjEvent, (u32 *)&objEvent);
     if (!task->data[7])
     {
         ObjectEventClearHeldMovement(objEvent);
@@ -649,7 +650,7 @@ static void Task_SetBuriedTrainerMovement(u8 taskId)
 // Called when a buried Trainer has the reveal_trainer movement applied, from direct interaction
 void SetBuriedTrainerMovement(struct ObjectEvent *objEvent)
 {
-    StoreWordInTwoHalfwords((u16*) &gTasks[CreateTask(Task_SetBuriedTrainerMovement, 0)].tObjEvent, (u32)objEvent);
+    StoreWordInTwoHalfwords(&gTasks[CreateTask(Task_SetBuriedTrainerMovement, 0)].tObjEvent, (u32)objEvent);
 }
 
 void DoTrainerApproach(void)
@@ -660,7 +661,7 @@ void DoTrainerApproach(void)
 static void Task_EndTrainerApproach(u8 taskId)
 {
     DestroyTask(taskId);
-    ScriptContext_Enable();
+    EnableBothScriptContexts();
 }
 
 void TryPrepareSecondApproachingTrainer(void)
@@ -689,8 +690,8 @@ void TryPrepareSecondApproachingTrainer(void)
 #define sLocalId    data[0]
 #define sMapNum     data[1]
 #define sMapGroup   data[2]
-#define sYVelocity  data[3]
-#define sYOffset    data[4]
+#define sData3      data[3]
+#define sData4      data[4]
 #define sFldEffId   data[7]
 
 u8 FldEff_ExclamationMarkIcon(void)
@@ -736,7 +737,7 @@ static void SetIconSpriteData(struct Sprite *sprite, u16 fldEffId, u8 spriteAnim
     sprite->sLocalId = gFieldEffectArguments[0];
     sprite->sMapNum = gFieldEffectArguments[1];
     sprite->sMapGroup = gFieldEffectArguments[2];
-    sprite->sYVelocity = -5;
+    sprite->sData3 = -5;
     sprite->sFldEffId = fldEffId;
 
     StartSpriteAnim(sprite, spriteAnimNum);
@@ -754,23 +755,23 @@ static void SpriteCB_TrainerIcons(struct Sprite *sprite)
     else
     {
         struct Sprite *objEventSprite = &gSprites[gObjectEvents[objEventId].spriteId];
-        sprite->sYOffset += sprite->sYVelocity;
+        sprite->sData4 += sprite->sData3;
         sprite->x = objEventSprite->x;
         sprite->y = objEventSprite->y - 16;
         sprite->x2 = objEventSprite->x2;
-        sprite->y2 = objEventSprite->y2 + sprite->sYOffset;
-        if (sprite->sYOffset)
-            sprite->sYVelocity++;
+        sprite->y2 = objEventSprite->y2 + sprite->sData4;
+        if (sprite->sData4)
+            sprite->sData3++;
         else
-            sprite->sYVelocity = 0;
+            sprite->sData3 = 0;
     }
 }
 
 #undef sLocalId
 #undef sMapNum
 #undef sMapGroup
-#undef sYVelocity
-#undef sYOffset
+#undef sData3
+#undef sData4
 #undef sFldEffId
 
 u8 GetCurrentApproachingTrainerObjectEventId(void)

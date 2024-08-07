@@ -251,11 +251,11 @@
 	.4byte \param1
 	.endm
 
-	.macro nop_2A
+	.macro nullsub_2A
 	.byte 0x2a
 	.endm
 
-	.macro nop_2B
+	.macro nullsub_2B
 	.byte 0x2b
 	.endm
 
@@ -287,11 +287,11 @@
 	.4byte \param1
 	.endm
 
-	.macro nop_32
+	.macro nullsub_32
 	.byte 0x32
 	.endm
 
-	.macro nop_33
+	.macro nullsub_33
 	.byte 0x33
 	.endm
 
@@ -467,27 +467,27 @@
 	.byte \battler
 	.endm
 
-	.macro nop_52
+	.macro nullsub_52
 	.byte 0x52
 	.endm
 
-	.macro nop_53
+	.macro nullsub_53
 	.byte 0x53
 	.endm
 
-	.macro nop_54
+	.macro nullsub_54
 	.byte 0x54
 	.endm
 
-	.macro nop_55
+	.macro nullsub_55
 	.byte 0x55
 	.endm
 
-	.macro nop_56
+	.macro nullsub_56
 	.byte 0x56
 	.endm
 
-	.macro nop_57
+	.macro nullsub_57
 	.byte 0x57
 	.endm
 
@@ -550,38 +550,38 @@
 	.2byte \param1
 	.4byte \param2
 	.endm
-
+	
 @ useful script macros
 	.macro get_curr_move_type
 	get_type AI_TYPE_MOVE
 	.endm
-
+	
 	.macro get_user_type1
 	get_type AI_TYPE1_USER
 	.endm
-
+	
 	.macro get_user_type2
 	get_type AI_TYPE2_USER
 	.endm
-
+	
 	.macro get_target_type1
 	get_type AI_TYPE1_TARGET
 	.endm
-
+	
 	.macro get_target_type2
 	get_type AI_TYPE2_TARGET
 	.endm
-
+	
 	.macro if_ability battler:req, ability:req, ptr:req
 	check_ability \battler, \ability
 	if_equal 1, \ptr
 	.endm
-
+	
 	.macro if_no_ability battler:req, ability:req, ptr:req
 	check_ability \battler, \ability
 	if_equal 0, \ptr
 	.endm
-
+	
 	.macro if_type battler:req, type:req, ptr:req
 	is_of_type \battler, \type
 	if_equal 1, \ptr
@@ -591,20 +591,20 @@
 	is_of_type \battler, \type
 	if_equal 0, \ptr
 	.endm
-
+	
 	.macro if_target_faster ptr:req
 	if_user_goes 1, \ptr
 	.endm
-
+	
 	.macro if_user_faster ptr:req
 	if_user_goes 0, \ptr
 	.endm
-
+	
 	.macro if_double_battle ptr:req
 	is_double_battle
 	if_equal 1, \ptr
 	.endm
-
+	
 	.macro if_not_double_battle ptr:req
 	is_double_battle
 	if_equal 0, \ptr
@@ -613,7 +613,7 @@
 	.macro if_any_move_disabled battler:req, ptr:req
 	if_any_move_disabled_or_encored \battler, 0, \ptr
 	.endm
-
+	
 	.macro if_any_move_encored battler:req, ptr:req
 	if_any_move_disabled_or_encored \battler, 1, \ptr
 	.endm

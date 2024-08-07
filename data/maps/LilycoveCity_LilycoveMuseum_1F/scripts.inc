@@ -14,8 +14,10 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_Curator::
 	message LilycoveCity_LilycoveMuseum_1F_Text_ImCuratorHaveYouViewedOurPaintings
 	waitmessage
 	multichoice 20, 8, MULTI_VIEWED_PAINTINGS, TRUE
-	goto_if_eq VAR_RESULT, 0, LilycoveCity_LilycoveMuseum_1F_EventScript_SawPaintings
-	goto_if_eq VAR_RESULT, 1, LilycoveCity_LilycoveMuseum_1F_EventScript_NotYet
+	compare VAR_RESULT, 0
+	goto_if_eq LilycoveCity_LilycoveMuseum_1F_EventScript_SawPaintings
+	compare VAR_RESULT, 1
+	goto_if_eq LilycoveCity_LilycoveMuseum_1F_EventScript_NotYet
 	end
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_NotYet::
@@ -24,8 +26,10 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_NotYet::
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_SawPaintings::
 	msgbox LilycoveCity_LilycoveMuseum_1F_Text_HaveYouAnInterestInPaintings, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LilycoveCity_LilycoveMuseum_1F_EventScript_NotInterested
-	goto_if_eq VAR_RESULT, YES, LilycoveCity_LilycoveMuseum_1F_EventScript_InterestedInPaintings
+	compare VAR_RESULT, NO
+	goto_if_eq LilycoveCity_LilycoveMuseum_1F_EventScript_NotInterested
+	compare VAR_RESULT, YES
+	goto_if_eq LilycoveCity_LilycoveMuseum_1F_EventScript_InterestedInPaintings
 	end
 
 LilycoveCity_LilycoveMuseum_1F_EventScript_NotInterested::
@@ -48,7 +52,7 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_FollowCuratorNorth::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_LilycoveMuseum_1F_Movement_FollowCuratorNorth
 	waitmovement 0
-	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 11, 8
+	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 255, 11, 8
 	waitstate
 	end
 
@@ -56,7 +60,7 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_FollowCuratorWest::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_LilycoveMuseum_1F_Movement_FollowCuratorWest
 	waitmovement 0
-	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 11, 8
+	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 255, 11, 8
 	waitstate
 	end
 
@@ -64,7 +68,7 @@ LilycoveCity_LilycoveMuseum_1F_EventScript_FollowCuratorEast::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, LilycoveCity_LilycoveMuseum_1F_Movement_FollowCuratorEast
 	waitmovement 0
-	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 11, 8
+	warp MAP_LILYCOVE_CITY_LILYCOVE_MUSEUM_2F, 255, 11, 8
 	waitstate
 	end
 

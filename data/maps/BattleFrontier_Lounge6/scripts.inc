@@ -10,15 +10,18 @@ BattleFrontier_Lounge6_EventScript_Trader::
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
 	msgbox BattleFrontier_Lounge6_Text_WouldYouLikeToTrade, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, BattleFrontier_Lounge6_EventScript_DeclineTrade
+	compare VAR_RESULT, NO
+	goto_if_eq BattleFrontier_Lounge6_EventScript_DeclineTrade
 	special ChoosePartyMon
 	waitstate
 	copyvar VAR_0x800A, VAR_0x8004
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, BattleFrontier_Lounge6_EventScript_DeclineTrade
+	compare VAR_0x8004, 255
+	goto_if_eq BattleFrontier_Lounge6_EventScript_DeclineTrade
 	copyvar VAR_0x8005, VAR_0x800A
 	specialvar VAR_RESULT, GetTradeSpecies
 	copyvar VAR_0x800B, VAR_RESULT
-	goto_if_ne VAR_RESULT, VAR_0x8009, BattleFrontier_Lounge6_EventScript_NotRequestedMon
+	compare VAR_RESULT, VAR_0x8009
+	goto_if_ne BattleFrontier_Lounge6_EventScript_NotRequestedMon
 	copyvar VAR_0x8004, VAR_0x8008
 	copyvar VAR_0x8005, VAR_0x800A
 	special CreateInGameTradePokemon
@@ -35,7 +38,7 @@ BattleFrontier_Lounge6_EventScript_DeclineTrade::
 	end
 
 BattleFrontier_Lounge6_EventScript_NotRequestedMon::
-	bufferspeciesname STR_VAR_1, VAR_0x8009
+	bufferspeciesname 0, VAR_0x8009
 	msgbox BattleFrontier_Lounge6_Text_DontTradeForAnythingButMon, MSGBOX_DEFAULT
 	release
 	end

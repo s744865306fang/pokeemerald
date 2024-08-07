@@ -1,63 +1,63 @@
-@ Only contains the text for the Mauville Man named Giddy. The rest is in scripts/mauville_man.inc
-GiddyText_SoPretty::
+@ Only contains a portion of the mauville_man text. The rest is in scripts/mauville_man.inc
+gText_SoPretty::
 	.string " so pretty!$"
 
-GiddyText_SoDarling::
+gText_SoDarling::
 	.string " so darling!$"
 
-GiddyText_SoRelaxed::
+gText_SoRelaxed::
 	.string " so relaxed!$"
 
-GiddyText_SoSunny::
+gText_SoSunny::
 	.string " so sunny!$"
 
-GiddyText_SoDesirable::
+gText_SoDesirable::
 	.string " so desirable!$"
 
-GiddyText_SoExciting::
+gText_SoExciting::
 	.string " so exciting!$"
 
-GiddyText_SoAmusing::
+gText_SoAmusing::
 	.string " so amusing!$"
 
-GiddyText_SoMagical::
+gText_SoMagical::
 	.string " so magical!$"
 
-GiddyText_Is::
+gOtherText_Is::
 	.string " is$"
 
-GiddyText_DontYouAgree::
+gOtherText_DontYouAgree::
 	.string "\n"
 	.string "Don't you agree?$"
 
-GiddyText_ISoWantToGoOnAVacation::
+gMauvilleManText_ISoWantToGoOnAVacation::
 	.string "I so want to go on a vacation.\n"
 	.string "Would you happen to know a nice place?$"
 
-GiddyText_IBoughtCrayonsWith120Colors::
+gMauvilleManText_IBoughtCrayonsWith120Colors::
 	.string "I bought crayons with 120 colors!\n"
 	.string "Don't you think that's nice?$"
 
-GiddyText_WouldntItBeNiceIfWeCouldFloat::
+gMauvilleManText_WouldntItBeNiceIfWeCouldFloat::
 	.string "Wouldn't it be nice if we could float\n"
 	.string "away on a cloud of bubbles?$"
 
-GiddyText_WhenYouWriteOnASandyBeach::
+gMauvilleManText_WhenYouWriteOnASandyBeach::
 	.string "When you write on a sandy beach,\n"
 	.string "they wash away. It makes me sad.$"
 
-GiddyText_WhatsTheBottomOfTheSeaLike::
+gMauvilleManText_WhatsTheBottomOfTheSeaLike::
 	.string "What's the bottom of the sea like?\n"
 	.string "Just once I would so love to go!$"
 
-GiddyText_WhenYouSeeTheSettingSunDoesIt::
+gMauvilleManText_WhenYouSeeTheSettingSunDoesIt::
 	.string "When you see the setting sun, does it\n"
 	.string "make you want to go home?$"
 
-GiddyText_LyingBackInTheGreenGrass::
+gMauvilleManText_LyingBackInTheGreenGrass::
 	.string "Lying back in the green grass…\n"
 	.string "Oh, it's so, so nice!$"
 
-GiddyText_SecretBasesAreSoWonderful::
+gMauvilleManText_SecretBasesAreSoWonderful::
 	.string "SECRET BASES are so wonderful!\n"
 	.string "Can't you feel the excitement?$"

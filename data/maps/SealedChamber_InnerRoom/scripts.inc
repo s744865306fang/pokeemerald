@@ -3,24 +3,27 @@ SealedChamber_InnerRoom_MapScripts::
 
 SealedChamber_InnerRoom_EventScript_BrailleBackWall::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth
+	braillemessage SealedChamber_InnerRoom_Braille_FirstWailordLastRelicanth
+	waitbuttonpress
+	closebraillemessage
 	goto_if_set FLAG_REGI_DOORS_OPENED, SealedChamber_InnerRoom_EventScript_NoEffect
 	specialvar VAR_RESULT, CheckRelicanthWailord
-	goto_if_eq VAR_RESULT, FALSE, SealedChamber_InnerRoom_EventScript_NoEffect
+	compare VAR_RESULT, FALSE
+	goto_if_eq SealedChamber_InnerRoom_EventScript_NoEffect
 	fadeoutbgm 0
 	playse SE_TRUCK_MOVE
-	special DoSealedChamberShakingEffect_Long
+	special DoSealedChamberShakingEffect1
 	waitstate
 	delay 40
-	special DoSealedChamberShakingEffect_Short
-	waitstate
-	playse SE_DOOR
-	delay 40
-	special DoSealedChamberShakingEffect_Short
+	special DoSealedChamberShakingEffect2
 	waitstate
 	playse SE_DOOR
 	delay 40
-	special DoSealedChamberShakingEffect_Short
+	special DoSealedChamberShakingEffect2
+	waitstate
+	playse SE_DOOR
+	delay 40
+	special DoSealedChamberShakingEffect2
 	waitstate
 	playse SE_DOOR
 	delay 40
@@ -37,37 +40,49 @@ SealedChamber_InnerRoom_EventScript_NoEffect::
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart1::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived
+	braillemessage SealedChamber_InnerRoom_Braille_InThisCaveWeHaveLived
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart2::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon
+	braillemessage SealedChamber_InnerRoom_Braille_WeOweAllToThePokemon
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart3::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway
+	braillemessage SealedChamber_InnerRoom_Braille_ButWeSealedThePokemonAway
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart4::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_WeFearedIt
+	braillemessage SealedChamber_InnerRoom_Braille_WeFearedIt
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart5::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_ThoseWithCourageHope
+	braillemessage SealedChamber_InnerRoom_Braille_ThoseWithCourageHope
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 
 SealedChamber_InnerRoom_EventScript_BrailleStoryPart6::
 	lockall
-	braillemsgbox SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits
+	braillemessage SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits
+	waitbuttonpress
+	closebraillemessage
 	releaseall
 	end
 

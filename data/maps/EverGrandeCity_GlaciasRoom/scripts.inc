@@ -25,7 +25,8 @@ EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor::
 
 EverGrandeCity_GlaciasRoom_OnLoad:
 	call_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom
-	call_if_eq VAR_ELITE_4_STATE, 3, EverGrandeCity_GlaciasRoom_EventScript_CloseDoor
+	compare VAR_ELITE_4_STATE, 3
+	call_if_eq EverGrandeCity_GlaciasRoom_EventScript_CloseDoor
 	end
 
 EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom::

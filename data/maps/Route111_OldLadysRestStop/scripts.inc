@@ -10,8 +10,10 @@ Route111_OldLadysRestStop_EventScript_OldLady::
 	lock
 	faceplayer
 	msgbox Route111_OldLadysRestStop_Text_RestUpHere, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route111_OldLadysRestStop_EventScript_Rest
-	goto_if_eq VAR_RESULT, NO, Route111_OldLadysRestStop_EventScript_DeclineRest
+	compare VAR_RESULT, YES
+	goto_if_eq Route111_OldLadysRestStop_EventScript_Rest
+	compare VAR_RESULT, NO
+	goto_if_eq Route111_OldLadysRestStop_EventScript_DeclineRest
 	end
 
 Route111_OldLadysRestStop_EventScript_Rest::
@@ -19,8 +21,10 @@ Route111_OldLadysRestStop_EventScript_Rest::
 	closemessage
 	call Common_EventScript_OutOfCenterPartyHeal
 	msgbox Route111_OldLadysRestStop_Text_StillTiredTakeAnotherRest, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route111_OldLadysRestStop_EventScript_Rest
-	goto_if_eq VAR_RESULT, NO, Route111_OldLadysRestStop_EventScript_DeclineRest
+	compare VAR_RESULT, YES
+	goto_if_eq Route111_OldLadysRestStop_EventScript_Rest
+	compare VAR_RESULT, NO
+	goto_if_eq Route111_OldLadysRestStop_EventScript_DeclineRest
 	end
 
 Route111_OldLadysRestStop_EventScript_DeclineRest::

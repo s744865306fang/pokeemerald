@@ -3,7 +3,8 @@ Route110_TrickHousePuzzle8_MapScripts::
 
 Route110_TrickHousePuzzle8_EventScript_Scroll::
 	lockall
-	goto_if_eq VAR_TRICK_HOUSE_PUZZLE_8_STATE, 0, Route110_TrickHousePuzzle8_EventScript_FoundScroll
+	compare VAR_TRICK_HOUSE_PUZZLE_8_STATE, 0
+	goto_if_eq Route110_TrickHousePuzzle8_EventScript_FoundScroll
 	goto Route110_TrickHousePuzzle_EventScript_ReadScrollAgain
 	end
 
@@ -27,7 +28,7 @@ Route110_TrickHousePuzzle8_EventScript_Leroy::
 	msgbox Route110_TrickHousePuzzle8_Text_LeroyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route110_TrickHousePuzzle8_Text_WroteSecretCodeLockOpened::
+Route110_TrickHousePuzzle8_EventScript_WroteSecretCodeLockOpened::
 	.string "{PLAYER} wrote down the secret code\n"
 	.string "on the door.\p"
 	.string "“TRICK MASTER I love.”\n"

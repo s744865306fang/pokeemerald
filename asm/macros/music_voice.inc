@@ -145,7 +145,7 @@
 	.byte 0xff, 0, 0xff, 0
 	.endm
 
-	.macro cry_reverse sample:req
+	.macro cry2 sample:req
 	.byte 0x30, 60, 0, 0
 	.4byte \sample
 	.byte 0xff, 0, 0xff, 0

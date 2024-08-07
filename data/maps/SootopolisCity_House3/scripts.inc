@@ -5,7 +5,8 @@ SootopolisCity_House3_EventScript_Woman::
 	lock
 	faceplayer
 	msgbox SootopolisCity_House3_Text_JuanHasManyFansDoYou, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, SootopolisCity_House3_EventScript_HaveFans
+	compare VAR_RESULT, YES
+	goto_if_eq SootopolisCity_House3_EventScript_HaveFans
 	msgbox SootopolisCity_House3_Text_LonesomeTryWorkingHarder, MSGBOX_DEFAULT
 	release
 	end

@@ -249,7 +249,8 @@ BerryBlender_EventScript_BerryBlender1::
 	applymovement LOCALID_EXPERT_M, BerryBlender_Movement_BlendLeaderWalkInPlace
 	waitmovement 0
 	msgbox BerryBlender_Text_WantToMakePokeblocks, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_TryUseBerryBlender1
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryUseBerryBlender1
 	goto BerryBlender_EventScript_DeclineBlender1
 	end
 
@@ -279,7 +280,8 @@ BerryBlender_EventScript_Blender1GiveSpareBerry:
 
 BerryBlender_EventScript_UseBerryBlender1:
 	msgbox BerryBlender_Text_KnowHowToMakePokeblocks, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_StartBlender1
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_StartBlender1
 	goto BerryBlender_EventScript_ExplainBlending1
 	end
 
@@ -294,12 +296,15 @@ BerryBlender_EventScript_ExplainBlending1:
 	end
 
 BerryBlender_EventScript_TryUseBerryBlender1:
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender1NoCase
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender1NoCase
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_Blender1CaseFull
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_Blender1CaseFull
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender1NoBerries
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender1NoBerries
 	msgbox BerryBlender_Text_Excellent, MSGBOX_DEFAULT
 	goto BerryBlender_EventScript_UseBerryBlender1
 	end
@@ -329,7 +334,8 @@ BerryBlender_EventScript_BerryBlender2::
 	applymovement LOCALID_MAN, BerryBlender_Movement_BlendLeaderWalkInPlace
 	waitmovement 0
 	msgbox BerryBlender_Text_WantToBlendPokeblocksWithUs, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_TryUseBerryBlender2
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryUseBerryBlender2
 	goto BerryBlender_EventScript_DeclineBlender2
 	end
 
@@ -345,7 +351,8 @@ BerryBlender_EventScript_Blender2NoBerries:
 
 BerryBlender_EventScript_UseBerryBlender2:
 	msgbox BerryBlender_Text_KnowHowToMakePokeblocks2, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_StartBlender2
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_StartBlender2
 	goto BerryBlender_EventScript_ExplainBlending2
 	end
 
@@ -361,13 +368,17 @@ BerryBlender_EventScript_ExplainBlending2:
 
 BerryBlender_EventScript_TryUseBerryBlender2:
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender2NoBerries
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender2NoCase
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender2NoBerries
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender2NoCase
 	msgbox BerryBlender_Text_Okay, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_ne VAR_RESULT, 65535, BerryBlender_EventScript_UseBerryBlender2
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_Blender2CaseFull
+	compare VAR_RESULT, 65535
+	goto_if_ne BerryBlender_EventScript_UseBerryBlender2
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_Blender2CaseFull
 	end
 
 BerryBlender_EventScript_Blender2CaseFull:
@@ -389,7 +400,8 @@ BerryBlender_EventScript_BerryBlender3::
 	applymovement VAR_0x8008, BerryBlender_Movement_BlendLeaderWalkInPlace
 	waitmovement 0
 	msgbox BerryBlender_Text_LookGoodAtBlendingJoinUs, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_TryUseBlender3
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryUseBlender3
 	goto BerryBlender_EventScript_DeclineBlender3
 	end
 
@@ -405,7 +417,8 @@ BerryBlender_EventScript_Blender3NoBerries:
 
 BerryBlender_EventScript_UseBerryBlender3:
 	msgbox BerryBlender_Text_KnowHowToMakePokeblocks3, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_StartBlender3
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_StartBlender3
 	goto BerryBlender_EventScript_ExplainBlending3
 	end
 
@@ -421,13 +434,17 @@ BerryBlender_EventScript_ExplainBlending3:
 
 BerryBlender_EventScript_TryUseBlender3:
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender3NoBerries
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_Blender3NoCase
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender3NoBerries
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_Blender3NoCase
 	msgbox BerryBlender_Text_OhDear, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_ne VAR_RESULT, 65535, BerryBlender_EventScript_UseBerryBlender3
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_Blender3CaseFull
+	compare VAR_RESULT, 65535
+	goto_if_ne BerryBlender_EventScript_UseBerryBlender3
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_Blender3CaseFull
 	end
 
 BerryBlender_EventScript_Blender3CaseFull:
@@ -444,7 +461,8 @@ BerryBlender_EventScript_BlendMasterPresent:
 	lockall
 	setvar NUM_OPPONENTS, 1
 	msgbox BerryBlender_Text_SeeMyMasteryInAction, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_TryBlendWithBlendMaster
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryBlendWithBlendMaster
 	msgbox BerryBlender_Text_TooBusyNowIsee, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -455,18 +473,23 @@ BerryBlender_EventScript_BlendMasterNoBerries:
 	end
 
 BerryBlender_EventScript_TryBlendWithBlendMaster:
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_BlendMasterNoCase
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_BlendMasterNoCase
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_BlendMasterNoBerries
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_BlendMasterNoBerries
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_ne VAR_RESULT, 65535, BerryBlender_EventScript_BlendWithBlendMaster
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_BlendMasterCaseFull
+	compare VAR_RESULT, 65535
+	goto_if_ne BerryBlender_EventScript_BlendWithBlendMaster
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_BlendMasterCaseFull
 	end
 
 BerryBlender_EventScript_BlendWithBlendMaster:
 	msgbox BerryBlender_Text_BlendMasterKnowHowToMakePokeblocks, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, NO, BerryBlender_EventScript_BlendMasterExplainBlending
+	compare VAR_RESULT, NO
+	call_if_eq BerryBlender_EventScript_BlendMasterExplainBlending
 	msgbox BerryBlender_Text_BlendMasterLetsBerryBlender, MSGBOX_DEFAULT
 	goto BerryBlender_EventScript_DoBerryBlending
 	end
@@ -507,8 +530,10 @@ BerryBlender_EventScript_ExpertMCheckGiveBerry:
 	faceplayer
 	msgbox BerryBlender_Text_LoveMakingPokeblocks, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, TRUE, BerryBlender_EventScript_ExpertMPlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_ExpertMNoBerries
+	compare VAR_RESULT, TRUE
+	goto_if_eq BerryBlender_EventScript_ExpertMPlayerHasBerries
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_ExpertMNoBerries
 	end
 
 BerryBlender_EventScript_ExpertMPlayerHasBerries:
@@ -517,10 +542,12 @@ BerryBlender_EventScript_ExpertMPlayerHasBerries:
 	end
 
 BerryBlender_EventScript_ExpertMNoBerries:
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_ExpertMNoSpareBerries
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_ExpertMNoSpareBerries
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_ExpertMNoSpareBerries
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_ExpertMNoSpareBerries
 	dotimebasedevents
 	goto_if_set FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY, BerryBlender_EventScript_ExpertMNoSpareBerries
 	goto BerryBlender_EventScript_ExpertMGiveBerry
@@ -540,24 +567,30 @@ BerryBlender_EventScript_ExpertMGiveBerry:
 	end
 
 BerryBlender_Movement_BlendLeaderWalkInPlace:
-	walk_in_place_faster_right
+	walk_in_place_fastest_right
 	step_end
 
 BerryBlender_EventScript_BerryBlenderLink::
 	lockall
 	specialvar VAR_RESULT, PlayerHasBerries
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_LinkBlenderNoBerries
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_LinkBlenderNoCase
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_LinkBlenderNoBerries
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_LinkBlenderNoCase
 	specialvar VAR_RESULT, GetFirstFreePokeblockSlot
-	goto_if_ne VAR_RESULT, 65535, BerryBlender_EventScript_LinkBlenderSaveGame
-	goto_if_eq VAR_RESULT, 65535, BerryBlender_EventScript_LinkBlenderCaseFull
+	compare VAR_RESULT, 65535
+	goto_if_ne BerryBlender_EventScript_LinkBlenderSaveGame
+	compare VAR_RESULT, 65535
+	goto_if_eq BerryBlender_EventScript_LinkBlenderCaseFull
 	end
 
 BerryBlender_EventScript_LinkBlenderSaveGame:
 	msgbox BerryBlender_Text_SaveGameBeforeBerryBlenderLink, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, BerryBlender_EventScript_TryDoLinkBlender
-	goto_if_eq VAR_RESULT, NO, BerryBlender_EventScript_CancelLinkBlender
+	compare VAR_RESULT, YES
+	goto_if_eq BerryBlender_EventScript_TryDoLinkBlender
+	compare VAR_RESULT, NO
+	goto_if_eq BerryBlender_EventScript_CancelLinkBlender
 	end
 
 BerryBlender_EventScript_LinkBlenderNoBerries:
@@ -567,18 +600,25 @@ BerryBlender_EventScript_LinkBlenderNoBerries:
 
 BerryBlender_EventScript_TryDoLinkBlender:
 	call Common_EventScript_SaveGame
-	goto_if_eq VAR_RESULT, FALSE, BerryBlender_EventScript_CancelLinkBlender
+	compare VAR_RESULT, FALSE
+	goto_if_eq BerryBlender_EventScript_CancelLinkBlender
 	specialvar VAR_RESULT, IsWirelessAdapterConnected
-	goto_if_eq VAR_RESULT, TRUE, BerryBlender_EventScript_StartDecideLinkLeader
+	compare VAR_RESULT, TRUE
+	goto_if_eq BerryBlender_EventScript_StartDecideLinkLeader
 	message BerryBlender_Text_SearchingForFriends
 	waitmessage
 	special TryBerryBlenderLinkup
 	waitstate
-	goto_if_eq VAR_RESULT, LINKUP_SUCCESS, BerryBlender_EventScript_SpawnLinkPartners
-	goto_if_eq VAR_RESULT, LINKUP_SOMEONE_NOT_READY, BerryBlender_EventScript_CloseLinkNotReady
-	goto_if_eq VAR_RESULT, LINKUP_DIFF_SELECTIONS, BerryBlender_EventScript_CloseLinkDifferentSelections
-	goto_if_eq VAR_RESULT, LINKUP_FAILED, BerryBlender_EventScript_CloseLink
-	goto_if_eq VAR_RESULT, LINKUP_CONNECTION_ERROR, BerryBlender_EventScript_LinkError
+	compare VAR_RESULT, LINKUP_SUCCESS
+	goto_if_eq BerryBlender_EventScript_SpawnLinkPartners
+	compare VAR_RESULT, LINKUP_SOMEONE_NOT_READY
+	goto_if_eq BerryBlender_EventScript_CloseLinkNotReady
+	compare VAR_RESULT, LINKUP_DIFF_SELECTIONS
+	goto_if_eq BerryBlender_EventScript_CloseLinkDifferentSelections
+	compare VAR_RESULT, LINKUP_FAILED
+	goto_if_eq BerryBlender_EventScript_CloseLink
+	compare VAR_RESULT, LINKUP_CONNECTION_ERROR
+	goto_if_eq BerryBlender_EventScript_LinkError
 	end
 
 BerryBlender_EventScript_TwoPlayerLink:
@@ -601,7 +641,7 @@ BerryBlender_EventScript_DoLinkBerryBlending:
 	fadescreen FADE_TO_BLACK
 	removeobject 240 @ Unclear where these local IDs come from,
 	removeobject 239 @ but presumably they'd be the 4 link players
-	removeobject 238
+	removeobject 238 
 	removeobject 237
 	special DoBerryBlending
 	waitstate
@@ -681,17 +721,23 @@ BerryBlender_EventScript_DecideLinkLeader:
 
 BerryBlender_EventScript_TryLeadGroup:
 	call BerryBlender_EventScript_TryBecomeLinkLeader
-	goto_if_eq VAR_RESULT, LINKUP_SUCCESS, BerryBlender_EventScript_LinkLeaderDecided
-	goto_if_eq VAR_RESULT, LINKUP_FAILED, BerryBlender_EventScript_DecideLinkLeader
-	goto_if_eq VAR_RESULT, LINKUP_RETRY_ROLE_ASSIGN, BerryBlender_EventScript_TryLeadGroup
+	compare VAR_RESULT, LINKUP_SUCCESS
+	goto_if_eq BerryBlender_EventScript_LinkLeaderDecided
+	compare VAR_RESULT, LINKUP_FAILED
+	goto_if_eq BerryBlender_EventScript_DecideLinkLeader
+	compare VAR_RESULT, LINKUP_RETRY_ROLE_ASSIGN
+	goto_if_eq BerryBlender_EventScript_TryLeadGroup
 	release
 	end
 
 BerryBlender_EventScript_TryJoinGroup:
 	call BerryBlender_EventScript_TryJoinLinkGroup
-	goto_if_eq VAR_RESULT, LINKUP_SUCCESS, BerryBlender_EventScript_LinkLeaderDecided
-	goto_if_eq VAR_RESULT, LINKUP_FAILED, BerryBlender_EventScript_DecideLinkLeader
-	goto_if_eq VAR_RESULT, LINKUP_RETRY_ROLE_ASSIGN, BerryBlender_EventScript_TryJoinGroup
+	compare VAR_RESULT, LINKUP_SUCCESS
+	goto_if_eq BerryBlender_EventScript_LinkLeaderDecided
+	compare VAR_RESULT, LINKUP_FAILED
+	goto_if_eq BerryBlender_EventScript_DecideLinkLeader
+	compare VAR_RESULT, LINKUP_RETRY_ROLE_ASSIGN
+	goto_if_eq BerryBlender_EventScript_TryJoinGroup
 	release
 	end
 

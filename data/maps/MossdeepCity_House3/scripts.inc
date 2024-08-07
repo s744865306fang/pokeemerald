@@ -6,7 +6,8 @@ MossdeepCity_House3_EventScript_SuperRodFisherman::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_SUPER_ROD, MossdeepCity_House3_EventScript_ReceivedSuperRod
 	msgbox MossdeepCity_House3_Text_YouWantSuperRod, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_House3_EventScript_DeclineSuperRod
+	compare VAR_RESULT, NO
+	goto_if_eq MossdeepCity_House3_EventScript_DeclineSuperRod
 	msgbox MossdeepCity_House3_Text_SuperRodIsSuper, MSGBOX_DEFAULT
 	giveitem ITEM_SUPER_ROD
 	setflag FLAG_RECEIVED_SUPER_ROD

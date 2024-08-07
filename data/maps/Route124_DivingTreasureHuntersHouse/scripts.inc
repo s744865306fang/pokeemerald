@@ -22,20 +22,25 @@ Route124_DivingTreasureHuntersHouse_EventScript_SkipGreeting::
 
 Route124_DivingTreasureHuntersHouse_EventScript_CheckPlayerHasShard::
 	call Route124_DivingTreasureHuntersHouse_EventScript_GetPlayersShards
-	goto_if_eq VAR_TEMP_1, 0, Route124_DivingTreasureHuntersHouse_EventScript_NoShards
+	compare VAR_TEMP_1, 0
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_NoShards
 	goto Route124_DivingTreasureHuntersHouse_EventScript_HasShard
 	end
 
 Route124_DivingTreasureHuntersHouse_EventScript_GetPlayersShards::
 	setvar VAR_TEMP_1, 0
-	checkitem ITEM_RED_SHARD
-	call_if_eq VAR_RESULT, TRUE, Route124_DivingTreasureHuntersHouse_EventScript_HasRedShard
-	checkitem ITEM_YELLOW_SHARD
-	call_if_eq VAR_RESULT, TRUE, Route124_DivingTreasureHuntersHouse_EventScript_HasYellowShard
-	checkitem ITEM_BLUE_SHARD
-	call_if_eq VAR_RESULT, TRUE, Route124_DivingTreasureHuntersHouse_EventScript_HasBlueShard
-	checkitem ITEM_GREEN_SHARD
-	call_if_eq VAR_RESULT, TRUE, Route124_DivingTreasureHuntersHouse_EventScript_HasGreenShard
+	checkitem ITEM_RED_SHARD, 1
+	compare VAR_RESULT, TRUE
+	call_if_eq Route124_DivingTreasureHuntersHouse_EventScript_HasRedShard
+	checkitem ITEM_YELLOW_SHARD, 1
+	compare VAR_RESULT, TRUE
+	call_if_eq Route124_DivingTreasureHuntersHouse_EventScript_HasYellowShard
+	checkitem ITEM_BLUE_SHARD, 1
+	compare VAR_RESULT, TRUE
+	call_if_eq Route124_DivingTreasureHuntersHouse_EventScript_HasBlueShard
+	checkitem ITEM_GREEN_SHARD, 1
+	compare VAR_RESULT, TRUE
+	call_if_eq Route124_DivingTreasureHuntersHouse_EventScript_HasGreenShard
 	return
 
 Route124_DivingTreasureHuntersHouse_EventScript_HasRedShard::
@@ -238,14 +243,17 @@ Route124_DivingTreasureHuntersHouse_EventScript_TradeGreenShard::
 	goto Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard
 
 Route124_DivingTreasureHuntersHouse_EventScript_TryTradeShard::
-	bufferitemname STR_VAR_1, VAR_0x8008
-	bufferitemname STR_VAR_2, VAR_0x8009
+	bufferitemname 0, VAR_0x8008
+	bufferitemname 1, VAR_0x8009
 	msgbox Route124_DivingTreasureHuntersHouse_Text_YoullTradeShardForStone, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, Route124_DivingTreasureHuntersHouse_EventScript_DeclineTrade
-	checkitemspace VAR_0x8009
-	goto_if_eq VAR_RESULT, TRUE, Route124_DivingTreasureHuntersHouse_EventScript_TradeShard
+	compare VAR_RESULT, NO
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_DeclineTrade
+	checkitemspace VAR_0x8009, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_TradeShard
 	checkitem VAR_0x8008, 2
-	goto_if_eq VAR_RESULT, FALSE, Route124_DivingTreasureHuntersHouse_EventScript_TradeShard
+	compare VAR_RESULT, FALSE
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_TradeShard
 	goto Route124_DivingTreasureHuntersHouse_EventScript_BagFull
 	end
 
@@ -254,9 +262,11 @@ Route124_DivingTreasureHuntersHouse_EventScript_TradeShard::
 	giveitem VAR_0x8009
 	msgbox Route124_DivingTreasureHuntersHouse_Text_ItsADeal, MSGBOX_DEFAULT
 	call Route124_DivingTreasureHuntersHouse_EventScript_GetPlayersShards
-	goto_if_eq VAR_TEMP_1, 0, Route124_DivingTreasureHuntersHouse_EventScript_EndTrade
+	compare VAR_TEMP_1, 0
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_EndTrade
 	msgbox Route124_DivingTreasureHuntersHouse_Text_TradeSomethingElse, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route124_DivingTreasureHuntersHouse_EventScript_ShowTradeOptions
+	compare VAR_RESULT, YES
+	goto_if_eq Route124_DivingTreasureHuntersHouse_EventScript_ShowTradeOptions
 	goto Route124_DivingTreasureHuntersHouse_EventScript_DeclineTrade
 	end
 

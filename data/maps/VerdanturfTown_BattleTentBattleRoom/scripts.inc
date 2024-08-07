@@ -18,8 +18,10 @@ VerdanturfTown_BattleTentBattleRoom_OnTransition:
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfx::
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfxMale
-	goto_if_eq VAR_RESULT, FEMALE, VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfxFemale
+	compare VAR_RESULT, MALE
+	goto_if_eq VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfxMale
+	compare VAR_RESULT, FEMALE
+	goto_if_eq VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfxFemale
 	return
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_SetPlayerGfxMale::
@@ -41,7 +43,8 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_EnterRoom::
 	applymovement LOCALID_PLAYER, VerdanturfTown_BattleTentBattleRoom_Movement_PlayerEnter
 	waitmovement 0
 	frontier_get FRONTIER_DATA_BATTLE_NUM
-	goto_if_ne VAR_RESULT, 0, VerdanturfTown_BattleTentBattleRoom_EventScript_AskContinueChallenge
+	compare VAR_RESULT, 0
+	goto_if_ne VerdanturfTown_BattleTentBattleRoom_EventScript_AskContinueChallenge
 VerdanturfTown_BattleTentBattleRoom_EventScript_NextOpponentEnter::
 	tower_setopponent
 	addobject LOCALID_OPPONENT
@@ -56,7 +59,7 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_NextOpponentEnter::
 VerdanturfTown_BattleTentBattleRoom_EventScript_WarpToLobbyLost::
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, CHALLENGE_STATUS_LOST
 	special LoadPlayerParty
-	warp MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY, 6, 6
+	warp MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY, 255, 6, 6
 	waitstate
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_DefeatedOpponent::
@@ -68,8 +71,8 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_DefeatedOpponent::
 	applymovement LOCALID_OPPONENT, VerdanturfTown_BattleTentBattleRoom_Movement_OpponentExit
 	waitmovement 0
 	removeobject LOCALID_OPPONENT
-	applymovement LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFasterDown
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFastestDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox BattleFrontier_BattlePalaceBattleRoom_Text_LetMeRestoreYourMons, MSGBOX_DEFAULT
 	special LoadPlayerParty
@@ -81,8 +84,10 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_DefeatedOpponent::
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_AskContinueChallenge::
 	frontier_get FRONTIER_DATA_BATTLE_NUM
-	call_if_eq VAR_RESULT, 1, VerdanturfTown_BattleTentBattleRoom_EventScript_ReadyFor2ndOpponent
-	call_if_eq VAR_RESULT, 2, VerdanturfTown_BattleTentBattleRoom_EventScript_ReadyFor3rdOpponent
+	compare VAR_RESULT, 1
+	call_if_eq VerdanturfTown_BattleTentBattleRoom_EventScript_ReadyFor2ndOpponent
+	compare VAR_RESULT, 2
+	call_if_eq VerdanturfTown_BattleTentBattleRoom_EventScript_ReadyFor3rdOpponent
 	multichoice 20, 6, MULTI_GO_ON_REST_RETIRE, TRUE
 	switch VAR_RESULT
 	case 0, VerdanturfTown_BattleTentBattleRoom_EventScript_ContinueChallenge
@@ -106,8 +111,8 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_AskRetireChallenge::
 	case MULTI_B_PRESSED, VerdanturfTown_BattleTentBattleRoom_EventScript_AskContinueChallenge
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_ContinueChallenge::
-	applymovement LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFasterRight
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_ATTENDANT, Common_Movement_WalkInPlaceFastestRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	closemessage
 	goto VerdanturfTown_BattleTentBattleRoom_EventScript_NextOpponentEnter
@@ -115,7 +120,7 @@ VerdanturfTown_BattleTentBattleRoom_EventScript_ContinueChallenge::
 VerdanturfTown_BattleTentBattleRoom_EventScript_WarpToLobbyWon::
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, CHALLENGE_STATUS_WON
 	special LoadPlayerParty
-	warp MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY, 6, 6
+	warp MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY, 255, 6, 6
 	waitstate
 
 VerdanturfTown_BattleTentBattleRoom_EventScript_PauseChallenge::

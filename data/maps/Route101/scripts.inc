@@ -33,7 +33,7 @@ Route101_EventScript_StartBirchRescue::
 	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChaseInCircles
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunInCircles
 	waitmovement 0
-	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonFaceBirch
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchFaceZigzagoon
@@ -140,7 +140,7 @@ Route101_Movement_EnterScene:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 Route101_Movement_BirchRunInCircles:
@@ -226,7 +226,7 @@ Route101_EventScript_BirchsBag::
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ZIGZAGOON
 	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
 	waitmovement 0
 	special ChooseStarter
 	waitstate
@@ -241,9 +241,11 @@ Route101_EventScript_BirchsBag::
 	setvar VAR_ROUTE101_STATE, 3
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
-	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
+	compare VAR_RESULT, MALE
+	call_if_eq Route101_EventScript_HideMayInBedroom
+	compare VAR_RESULT, FEMALE
+	call_if_eq Route101_EventScript_HideBrendanInBedroom
+	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
 	waitstate
 	release
 	end

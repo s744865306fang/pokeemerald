@@ -4,16 +4,17 @@ NewMauville_Entrance_MapScripts::
 	.byte 0
 
 NewMauville_Entrance_OnLoad:
-	call_if_eq VAR_NEW_MAUVILLE_STATE, 0, NewMauville_Entrance_EventScript_CloseDoor
+	compare VAR_NEW_MAUVILLE_STATE, 0
+	call_if_eq NewMauville_Entrance_EventScript_CloseDoor
 	end
 
 NewMauville_Entrance_EventScript_CloseDoor::
-	setmetatile 3, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, TRUE
-	setmetatile 4, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, TRUE
-	setmetatile 5, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, TRUE
-	setmetatile 3, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, TRUE
-	setmetatile 4, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, TRUE
-	setmetatile 5, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, TRUE
+	setmetatile 3, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, 1
+	setmetatile 4, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, 1
+	setmetatile 5, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, 1
+	setmetatile 3, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, 1
+	setmetatile 4, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, 1
+	setmetatile 5, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, 1
 	return
 
 NewMauville_Entrance_OnTransition:
@@ -22,20 +23,22 @@ NewMauville_Entrance_OnTransition:
 
 NewMauville_Entrance_EventScript_Door::
 	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	msgbox NewMauville_Entrance_Text_DoorIsLocked, MSGBOX_DEFAULT
-	checkitem ITEM_BASEMENT_KEY
-	goto_if_eq VAR_RESULT, FALSE, NewMauville_Entrance_EventScript_DontOpenDoor
+	checkitem ITEM_BASEMENT_KEY, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq NewMauville_Entrance_EventScript_DontOpenDoor
 	msgbox NewMauville_Entrance_Text_UseBasementKey, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, NewMauville_Entrance_EventScript_DontOpenDoor
+	compare VAR_RESULT, NO
+	goto_if_eq NewMauville_Entrance_EventScript_DontOpenDoor
 	msgbox NewMauville_Entrance_Text_UsedBasementKey, MSGBOX_DEFAULT
-	setmetatile 3, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile0, FALSE
-	setmetatile 4, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile1, FALSE
-	setmetatile 5, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile2, FALSE
-	setmetatile 3, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile3, TRUE
-	setmetatile 4, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile4, FALSE
-	setmetatile 5, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile5, TRUE
+	setmetatile 3, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile0, 0
+	setmetatile 4, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile1, 0
+	setmetatile 5, 0, METATILE_Facility_NewMauvilleDoor_Open_Tile2, 0
+	setmetatile 3, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile3, 1
+	setmetatile 4, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile4, 0
+	setmetatile 5, 1, METATILE_Facility_NewMauvilleDoor_Open_Tile5, 1
 	special DrawWholeMapView
 	playse SE_BANG
 	setvar VAR_NEW_MAUVILLE_STATE, 1

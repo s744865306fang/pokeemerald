@@ -1,4 +1,3 @@
-#include "config.h"
 #include "constants/global.h"
 #include "constants/apprentice.h"
 #include "constants/battle.h"
@@ -45,7 +44,6 @@
 #include "constants/script_menu.h"
 #include "constants/secret_bases.h"
 #include "constants/songs.h"
-#include "constants/sound.h"
 #include "constants/species.h"
 #include "constants/trade.h"
 #include "constants/trainer_hill.h"
@@ -60,6 +58,7 @@
 
 	.section script_data, "aw", %progbits
 
+@ 81DB67C
 	.include "data/script_cmd_table.inc"
 
 gSpecialVars::
@@ -99,7 +98,7 @@ gStdScripts::
 	.4byte Std_ObtainDecoration        @ STD_OBTAIN_DECORATION
 	.4byte Std_RegisteredInMatchCall   @ STD_REGISTER_MATCH_CALL
 	.4byte Std_MsgboxGetPoints         @ MSGBOX_GETPOINTS
-	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
+	.4byte Std_10
 gStdScripts_End::
 
 	.include "data/maps/PetalburgCity/scripts.inc"
@@ -583,9 +582,12 @@ EventScript_WhiteOut::
 	end
 
 EventScript_ResetMrBriney::
-	goto_if_eq VAR_BRINEY_LOCATION, 1, EventScript_MoveMrBrineyToHouse
-	goto_if_eq VAR_BRINEY_LOCATION, 2, EventScript_MoveMrBrineyToDewford
-	goto_if_eq VAR_BRINEY_LOCATION, 3, EventScript_MoveMrBrineyToRoute109
+	compare VAR_BRINEY_LOCATION, 1
+	goto_if_eq EventScript_MoveMrBrineyToHouse
+	compare VAR_BRINEY_LOCATION, 2
+	goto_if_eq EventScript_MoveMrBrineyToDewford
+	compare VAR_BRINEY_LOCATION, 3
+	goto_if_eq EventScript_MoveMrBrineyToRoute109
 	end
 
 EventScript_MoveMrBrineyToHouse::
@@ -784,7 +786,7 @@ RusturfTunnel_EventScript_SetRusturfTunnelOpen::
 
 EventScript_UnusedBoardFerry::
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	showobjectat OBJ_EVENT_ID_PLAYER, 0
 	delay 30
@@ -798,8 +800,10 @@ Movement_UnusedBoardFerry:
 	step_end
 
 Common_EventScript_FerryDepartIsland::
-	call_if_eq VAR_FACING, DIR_SOUTH, Ferry_EventScript_DepartIslandSouth
-	call_if_eq VAR_FACING, DIR_WEST, Ferry_EventScript_DepartIslandWest
+	compare VAR_FACING, DIR_SOUTH
+	call_if_eq Ferry_EventScript_DepartIslandSouth
+	compare VAR_FACING, DIR_WEST
+	call_if_eq Ferry_EventScript_DepartIslandWest
 	delay 30
 	hideobjectat OBJ_EVENT_ID_PLAYER, 0
 	call Common_EventScript_FerryDepart
@@ -815,7 +819,7 @@ Common_EventScript_NameReceivedPartyMon::
 	return
 
 Common_EventScript_PlayerHandedOverTheItem::
-	bufferitemname STR_VAR_1, VAR_0x8004
+	bufferitemname 0, VAR_0x8004
 	playfanfare MUS_OBTAIN_TMHM
 	message gText_PlayerHandedOverTheItem
 	waitmessage
@@ -952,7 +956,7 @@ gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
 	.include "data/text/pc_transfer.inc"
-	.include "data/text/questionnaire.inc"
+	.include "data/text/mevent.inc"
 	.include "data/text/abnormal_weather.inc"
 
 EventScript_SelectWithoutRegisteredItem::
@@ -996,13 +1000,13 @@ Common_EventScript_LegendaryFlewAway::
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-	bufferspeciesname STR_VAR_1, VAR_0x8004
+	bufferspeciesname 0, VAR_0x8004
 	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
 	release
 	end
 
 	.include "data/scripts/pc_transfer.inc"
-	.include "data/scripts/questionnaire.inc"
+	.include "data/scripts/mevent.inc"
 	.include "data/scripts/abnormal_weather.inc"
 	.include "data/scripts/trainer_script.inc"
 	.include "data/scripts/berry_tree.inc"
@@ -1022,7 +1026,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/scripts/mauville_man.inc"
 	.include "data/scripts/field_move_scripts.inc"
 	.include "data/scripts/item_ball_scripts.inc"
-	.include "data/scripts/profile_man.inc"
+	.include "data/scripts/mystery_event_club.inc"
 	.include "data/scripts/day_care.inc"
 	.include "data/scripts/flash.inc"
 	.include "data/scripts/players_house.inc"

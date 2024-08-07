@@ -7,28 +7,36 @@ RustboroCity_Flat1_2F_EventScript_WaldasDad::
 	lock
 	faceplayer
 	specialvar VAR_RESULT, TryBufferWaldaPhrase
-	goto_if_eq VAR_RESULT, FALSE, RustboroCity_Flat1_2F_EventScript_WaldasDadFirstPhrase
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_Flat1_2F_EventScript_WaldasDadNewPhrase
+	compare VAR_RESULT, FALSE
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_WaldasDadFirstPhrase
+	compare VAR_RESULT, TRUE
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_WaldasDadNewPhrase
 
 RustboroCity_Flat1_2F_EventScript_GivePhrase::
 	special DoWaldaNamingScreen
 	waitstate
-	goto_if_eq VAR_0x8004, 1, RustboroCity_Flat1_2F_EventScript_CancelGivePhrase
-	goto_if_eq VAR_0x8004, 2, RustboroCity_Flat1_2F_EventScript_CancelGiveFirstPhrase
+	compare VAR_0x8004, 1
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_CancelGivePhrase
+	compare VAR_0x8004, 2
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_CancelGiveFirstPhrase
 	specialvar VAR_RESULT, TryGetWallpaperWithWaldaPhrase
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_Flat1_2F_EventScript_WaldaLikesPhrase
-	goto_if_eq VAR_RESULT, FALSE, RustboroCity_Flat1_2F_EventScript_WaldaDoesntLikePhrase
+	compare VAR_RESULT, TRUE
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_WaldaLikesPhrase
+	compare VAR_RESULT, FALSE
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_WaldaDoesntLikePhrase
 	end
 
 RustboroCity_Flat1_2F_EventScript_WaldasDadFirstPhrase::
 	msgbox RustboroCity_Flat1_2F_Text_HelloDoYouKnowFunnyPhrase, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_Flat1_2F_EventScript_DeclineGivePhrase
+	compare VAR_RESULT, NO
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_DeclineGivePhrase
 	msgbox RustboroCity_Flat1_2F_Text_WonderfulLetsHearSuggestion, MSGBOX_DEFAULT
 	goto RustboroCity_Flat1_2F_EventScript_GivePhrase
 
 RustboroCity_Flat1_2F_EventScript_WaldasDadNewPhrase::
 	msgbox RustboroCity_Flat1_2F_Text_BeenSayingXDoYouKnowBetterPhrase, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_Flat1_2F_EventScript_DeclineGivePhrase
+	compare VAR_RESULT, NO
+	goto_if_eq RustboroCity_Flat1_2F_EventScript_DeclineGivePhrase
 	msgbox RustboroCity_Flat1_2F_Text_WonderfulLetsHearSuggestion, MSGBOX_DEFAULT
 	goto RustboroCity_Flat1_2F_EventScript_GivePhrase
 

@@ -15,15 +15,17 @@ Route103_OnLoad:
 	end
 
 Route103_EventScript_OpenAlteringCave::
-	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
-	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, FALSE
+	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, 1
+	setmetatile 45, 6, METATILE_General_CaveEntrance_Bottom, 0
 	return
 
 Route103_EventScript_Rival::
 	lockall
 	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, Route103_EventScript_RivalMay
-	goto_if_eq VAR_RESULT, FEMALE, Route103_EventScript_RivalBrendan
+	compare VAR_RESULT, MALE
+	goto_if_eq Route103_EventScript_RivalMay
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Route103_EventScript_RivalBrendan
 	end
 
 Route103_EventScript_RivalMay::
@@ -114,7 +116,7 @@ Route103_EventScript_RivalExitFacingNorth::
 	applymovement LOCALID_RIVAL, Route103_Movement_RivalExitFacingNorth1
 	waitmovement 0
 	playse SE_LEDGE
-	applymovement LOCALID_RIVAL, Route103_Movement_RivalExitFacingNorth2
+	applymovement LOCALID_RIVAL, Route103_EventScript_RivalExitFacingNorth2
 	waitmovement 0
 	goto Route103_EventScript_RivalEnd
 	end
@@ -155,7 +157,7 @@ Route103_Movement_RivalExitFacingNorth1:
 	walk_down
 	step_end
 
-Route103_Movement_RivalExitFacingNorth2:
+Route103_EventScript_RivalExitFacingNorth2:
 	jump_2_down
 	delay_16
 	walk_down
@@ -167,9 +169,9 @@ Route103_Movement_RivalExitFacingNorth2:
 Route103_Movement_WatchRivalExitFacingNorth:
 	delay_16
 	delay_4
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	delay_16
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 Route103_Movement_RivalExit1:
@@ -186,7 +188,7 @@ Route103_Movement_RivalExit2:
 
 Route103_Movement_WatchRivalExitFacingEastOrWest:
 	delay_16
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 Route103_EventScript_Boy::
@@ -209,7 +211,8 @@ Route103_EventScript_Daisy::
 Route103_EventScript_Amy::
 	trainerbattle_double TRAINER_AMY_AND_LIV_1, Route103_Text_AmyIntro, Route103_Text_AmyDefeated, Route103_Text_AmyNotEnoughPokemon, Route102_EventScript_AmyRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route102_EventScript_AmyRematch
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route102_EventScript_AmyRematch
 	msgbox Route103_Text_AmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -227,7 +230,8 @@ Route102_EventScript_AmyRematch::
 Route103_EventScript_Liv::
 	trainerbattle_double TRAINER_AMY_AND_LIV_1, Route103_Text_LivIntro, Route103_Text_LivDefeated, Route103_Text_LivNotEnoughPokemon, Route102_EventScript_LivRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route102_EventScript_LivRematch
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route102_EventScript_LivRematch
 	msgbox Route103_Text_LivPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -250,7 +254,8 @@ Route103_EventScript_Andrew::
 Route103_EventScript_Miguel::
 	trainerbattle_single TRAINER_MIGUEL_1, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_MiguelRematch
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route103_EventScript_MiguelRematch
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
 	release
 	end

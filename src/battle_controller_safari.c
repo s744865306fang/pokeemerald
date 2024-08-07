@@ -24,6 +24,7 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 
+// this file's functions
 static void SafariHandleGetMonData(void);
 static void SafariHandleGetRawMonData(void);
 static void SafariHandleSetMonData(void);
@@ -147,7 +148,7 @@ static void (*const sSafariBufferCommands[CONTROLLER_CMDS_COUNT])(void) =
     [CONTROLLER_TERMINATOR_NOP]           = SafariCmdEnd
 };
 
-static void UNUSED SpriteCB_Null4(void)
+static void SpriteCB_Null4(void)
 {
 }
 
@@ -176,16 +177,16 @@ static void HandleInputChooseAction(void)
         switch (gActionSelectionCursor[gActiveBattler])
         {
         case 0:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_BALL, 0);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_SAFARI_BALL, 0);
             break;
         case 1:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_POKEBLOCK, 0);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_SAFARI_POKEBLOCK, 0);
             break;
         case 2:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_GO_NEAR, 0);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_SAFARI_GO_NEAR, 0);
             break;
         case 3:
-            BtlController_EmitTwoReturnValues(BUFFER_B, B_ACTION_SAFARI_RUN, 0);
+            BtlController_EmitTwoReturnValues(1, B_ACTION_SAFARI_RUN, 0);
             break;
         }
         SafariBufferExecCompleted();
@@ -240,7 +241,7 @@ static void CompleteOnBattlerSpriteCallbackDummy(void)
 
 static void CompleteOnInactiveTextPrinter(void)
 {
-    if (!IsTextPrinterActive(B_WIN_MSG))
+    if (!IsTextPrinterActive(0))
         SafariBufferExecCompleted();
 }
 
@@ -280,7 +281,7 @@ static void CompleteWhenChosePokeblock(void)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        BtlController_EmitOneReturnValue(BUFFER_B, gSpecialVar_ItemId);
+        BtlController_EmitOneReturnValue(1, gSpecialVar_ItemId);
         SafariBufferExecCompleted();
     }
 }
@@ -307,7 +308,7 @@ static void SafariBufferExecCompleted(void)
     }
 }
 
-static void UNUSED CompleteOnFinishedStatusAnimation(void)
+static void CompleteOnFinishedStatusAnimation(void)
 {
     if (!gBattleSpritesDataPtr->healthBoxesData[gActiveBattler].statusAnimActive)
         SafariBufferExecCompleted();
@@ -422,9 +423,9 @@ static void SafariHandlePrintString(void)
 
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    stringId = (u16 *)(&gBattleBufferA[gActiveBattler][2]);
+    stringId = (u16*)(&gBattleBufferA[gActiveBattler][2]);
     BufferStringBattle(*stringId);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
+    BattlePutTextOnWindow(gDisplayedStringBattle, 0);
     gBattlerControllerFuncs[gActiveBattler] = CompleteOnInactiveTextPrinter;
 }
 
@@ -451,14 +452,14 @@ static void SafariHandleChooseAction(void)
     s32 i;
 
     gBattlerControllerFuncs[gActiveBattler] = HandleChooseActionAfterDma3;
-    BattlePutTextOnWindow(gText_SafariZoneMenu, B_WIN_ACTION_MENU);
+    BattlePutTextOnWindow(gText_SafariZoneMenu, 2);
 
     for (i = 0; i < 4; i++)
         ActionSelectionDestroyCursorAt(i);
 
     ActionSelectionCreateCursorAt(gActionSelectionCursor[gActiveBattler], 0);
     BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo2);
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
+    BattlePutTextOnWindow(gDisplayedStringBattle, 1);
 }
 
 static void SafariHandleYesNoBox(void)
@@ -616,7 +617,7 @@ static void SafariHandleFaintingCry(void)
 {
     u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
 
-    PlayCry_Normal(species, 25);
+    PlayCry1(species, 25);
     SafariBufferExecCompleted();
 }
 

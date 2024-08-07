@@ -33,7 +33,7 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Dolls:
 	.2byte DECOR_PIKACHU_DOLL
 	.2byte DECOR_MARILL_DOLL
 	.2byte DECOR_JIGGLYPUFF_DOLL
-	.2byte DECOR_DUSKULL_DOLL
+	.2byte DECOR_DUSKULL_DOLL 
 	.2byte DECOR_WYNAUT_DOLL
 	.2byte DECOR_BALTOY_DOLL
 	.2byte DECOR_KECLEON_DOLL
@@ -129,8 +129,10 @@ LilycoveCity_DepartmentStore_5F_EventScript_Woman::
 	lockall
 	applymovement LOCALID_WOMAN, Common_Movement_FacePlayer
 	waitmovement 0
-	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 0, LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
-	goto_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
+	compare VAR_SOOTOPOLIS_CITY_STATE, 0
+	goto_if_eq LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
+	compare VAR_SOOTOPOLIS_CITY_STATE, 4
+	goto_if_ge LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal
 	goto LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather
 	end
 
@@ -143,7 +145,7 @@ LilycoveCity_DepartmentStore_5F_EventScript_WomanNormal::
 LilycoveCity_DepartmentStore_5F_EventScript_WomanLegendaryWeather::
 	msgbox LilycoveCity_DepartmentStore_5F_Text_ClosedRooftopForWeather, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_WOMAN, Common_Movement_WalkInPlaceFasterUp
+	applymovement LOCALID_WOMAN, Common_Movement_WalkInPlaceFastestUp
 	waitmovement 0
 	releaseall
 	end

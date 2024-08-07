@@ -6,14 +6,19 @@ Route127_MapScripts::
 
 Route127_OnTransition:
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH, AbnormalWeather_StartKyogreWeather
+	compare VAR_SHOULD_END_ABNORMAL_WEATHER, 1
+	call_if_eq AbnormalWeather_EventScript_HideMapNamePopup
+	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH
+	call_if_eq AbnormalWeather_StartKyogreWeather
+	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH
+	call_if_eq AbnormalWeather_StartKyogreWeather
 	end
 
 Route127_OnLoad:
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH, AbnormalWeather_EventScript_PlaceTilesRoute127North
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH, AbnormalWeather_EventScript_PlaceTilesRoute127South
+	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH
+	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute127North
+	compare VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH
+	call_if_eq AbnormalWeather_EventScript_PlaceTilesRoute127South
 	end
 
 Route127_OnFrame:
@@ -58,7 +63,8 @@ Route127_EventScript_Athena::
 Route127_EventScript_Koji::
 	trainerbattle_single TRAINER_KOJI_1, Route127_Text_KojiIntro, Route127_Text_KojiDefeat, Route127_EventScript_RegisterKoji
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route127_EventScript_RematchKoji
+	compare VAR_RESULT, TRUE
+	goto_if_eq Route127_EventScript_RematchKoji
 	msgbox Route127_Text_KojiPostBattle, MSGBOX_DEFAULT
 	release
 	end

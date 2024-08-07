@@ -1,7 +1,7 @@
 Std_MsgboxNPC:
 	lock
 	faceplayer
-	message NULL
+	message 0x0
 	waitmessage
 	waitbuttonpress
 	release
@@ -9,34 +9,33 @@ Std_MsgboxNPC:
 
 Std_MsgboxSign:
 	lockall
-	message NULL
+	message 0x0
 	waitmessage
 	waitbuttonpress
 	releaseall
 	return
 
 Std_MsgboxDefault:
-	message NULL
+	message 0x0
 	waitmessage
 	waitbuttonpress
 	return
 
 Std_MsgboxYesNo:
-	message NULL
+	message 0x0
 	waitmessage
 	yesnobox 20, 8
 	return
 
 Std_MsgboxGetPoints:
-	message NULL
+	message 0x0
 	playfanfare MUS_OBTAIN_B_POINTS
 	waitfanfare
 	waitmessage
 	return
 
-@ Never used, pokenavcall is always used directly instead
-Std_MsgboxPokenav:
-	pokenavcall NULL
+Std_10:
+	pokenavcall 0x0
 	waitmessage
 	return
 

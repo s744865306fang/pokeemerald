@@ -8,7 +8,6 @@
 #include "gpu_regs.h"
 #include "menu.h"
 #include "random.h"
-#include "palette.h"
 #include "palette_util.h"
 #include "script.h"
 #include "sound.h"
@@ -16,11 +15,12 @@
 #include "task.h"
 #include "window.h"
 #include "constants/event_objects.h"
+#include "constants/maps.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
 
-struct MirageTowerPulseBlend
+struct MirageTowerPulseBlend 
 {
     u8 taskId;
     struct PulseBlend pulseBlend;
@@ -68,14 +68,14 @@ static void IncrementCeilingCrumbleFinishedCount(void);
 static void WaitCeilingCrumble(u8);
 static void FinishCeilingCrumbleTask(u8);
 static void CreateCeilingCrumbleSprites(void);
-static void SpriteCB_CeilingCrumble(struct Sprite *);
+static void SpriteCB_CeilingCrumble(struct Sprite*);
 static void DoMirageTowerDisintegration(u8);
 static void InitMirageTowerShake(u8);
 static void Task_FossilFallAndSink(u8);
 static void SpriteCB_FallingFossil(struct Sprite *);
-static void UpdateDisintegrationEffect(u8 *, u16, u8, u8, u8);
+static void UpdateDisintegrationEffect(u8*, u16, u8, u8, u8);
 
-static const u8 ALIGNED(2) sBlankTile_Gfx[32] = {0};
+static const u8 sBlankTile_Gfx[32] = {0};
 static const u8 sMirageTower_Gfx[] = INCBIN_U8("graphics/misc/mirage_tower.4bpp");
 static const u16 sMirageTowerTilemap[] = INCBIN_U16("graphics/misc/mirage_tower.bin");
 static const u16 sFossil_Pal[] = INCBIN_U16("graphics/object_events/pics/misc/fossil.gbapal"); // Unused
@@ -97,7 +97,7 @@ static const s16 sCeilingCrumblePositions[][3] =
 
 static const struct SpriteSheet sCeilingCrumbleSpriteSheets[] =
 {
-    {sMirageTowerCrumbles_Gfx, sizeof(sMirageTowerCrumbles_Gfx), TAG_CEILING_CRUMBLE},
+    {sMirageTowerCrumbles_Gfx, 0x80, TAG_CEILING_CRUMBLE},
     {}
 };
 
@@ -134,7 +134,7 @@ static const struct OamData sOamData_FallingFossil =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
+    .mosaic = 0,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(16x16),
     .x = 0,
@@ -153,8 +153,8 @@ static const union AnimCmd *const sAnims_FallingFossil[] =
 
 static const struct SpriteTemplate sSpriteTemplate_FallingFossil =
 {
-    .tileTag = TAG_NONE,
-    .paletteTag = TAG_NONE,
+    .tileTag = 0xFFFF,
+    .paletteTag = 0xFFFF,
     .oam = &sOamData_FallingFossil,
     .anims = sAnims_FallingFossil,
     .images = NULL,
@@ -164,7 +164,7 @@ static const struct SpriteTemplate sSpriteTemplate_FallingFossil =
 
 const struct PulseBlendSettings gMirageTowerPulseBlendSettings = {
     .blendColor = RGB(27, 25, 16),
-    .paletteOffset = BG_PLTT_ID(6) + 1,
+    .paletteOffset = 0x61,
     .numColors = 15,
     .delay = 5,
     .numFadeCycles = -1,
@@ -190,7 +190,7 @@ static const struct OamData sOamData_CeilingCrumbleSmall =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
+    .mosaic = 0,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(8x8),
     .x = 0,
@@ -202,10 +202,9 @@ static const struct OamData sOamData_CeilingCrumbleSmall =
     .affineParam = 0,
 };
 
-static const struct SpriteTemplate sSpriteTemplate_CeilingCrumbleSmall =
-{
+static const struct SpriteTemplate sSpriteTemplate_CeilingCrumbleSmall = {
     .tileTag = TAG_CEILING_CRUMBLE,
-    .paletteTag = TAG_NONE,
+    .paletteTag = 0xFFFF,
     .oam = &sOamData_CeilingCrumbleSmall,
     .anims = sAnims_CeilingCrumbleSmall,
     .images = NULL,
@@ -229,7 +228,7 @@ static const struct OamData sOamData_CeilingCrumbleLarge =
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,
     .objMode = ST_OAM_OBJ_NORMAL,
-    .mosaic = FALSE,
+    .mosaic = 0,
     .bpp = ST_OAM_4BPP,
     .shape = SPRITE_SHAPE(16x16),
     .x = 0,
@@ -241,10 +240,9 @@ static const struct OamData sOamData_CeilingCrumbleLarge =
     .affineParam = 0,
 };
 
-static const struct SpriteTemplate sSpriteTemplate_CeilingCrumbleLarge =
-{
+static const struct SpriteTemplate sSpriteTemplate_CeilingCrumbleLarge = {
     .tileTag = TAG_CEILING_CRUMBLE,
-    .paletteTag = TAG_NONE,
+    .paletteTag = 0xFFFF,
     .oam = &sOamData_CeilingCrumbleLarge,
     .anims = sAnims_CeilingCrumbleLarge,
     .images = NULL,
@@ -252,8 +250,8 @@ static const struct SpriteTemplate sSpriteTemplate_CeilingCrumbleLarge =
     .callback = SpriteCB_CeilingCrumble
 };
 
-EWRAM_DATA static u8 *sMirageTowerGfxBuffer = NULL;
-EWRAM_DATA static u8 *sMirageTowerTilemapBuffer = NULL;
+EWRAM_DATA static u8* sMirageTowerGfxBuffer = NULL;
+EWRAM_DATA static u8* sMirageTowerTilemapBuffer = NULL;
 EWRAM_DATA static struct FallAnim_Fossil *sFallingFossil = NULL;
 EWRAM_DATA static struct FallAnim_Tower *sFallingTower = NULL;
 EWRAM_DATA static struct BgRegOffsets *sBgShakeOffsets = NULL;
@@ -364,7 +362,7 @@ static void PlayerDescendMirageTower(u8 taskId)
         (gSprites[player->spriteId].y + gSprites[player->spriteId].y2))
     {
         DestroyTask(taskId);
-        ScriptContext_Enable();
+        EnableBothScriptContexts();
     }
 }
 
@@ -431,7 +429,7 @@ void DoMirageTowerCeilingCrumble(void)
 
 static void WaitCeilingCrumble(u8 taskId)
 {
-    u16 *data = (u16*)gTasks[taskId].data;
+    u16 *data = gTasks[taskId].data;
     data[1]++;
     // Either wait 1000 frames, or until all 16 crumble sprites and the one screen-shake task are completed.
     if (data[1] == 1000 || data[0] == 17)
@@ -442,7 +440,7 @@ static void FinishCeilingCrumbleTask(u8 taskId)
 {
     FreeSpriteTilesByTag(TAG_CEILING_CRUMBLE);
     DestroyTask(taskId);
-    ScriptContext_Enable();
+    EnableBothScriptContexts();
 }
 
 static void CreateCeilingCrumbleSprites(void)
@@ -466,7 +464,7 @@ static void CreateCeilingCrumbleSprites(void)
     }
 }
 
-static void SpriteCB_CeilingCrumble(struct Sprite *sprite)
+static void SpriteCB_CeilingCrumble(struct Sprite* sprite)
 {
     sprite->data[1] += 2;
     sprite->y2 = sprite->data[1] / 2;
@@ -481,9 +479,7 @@ static void SetInvisibleMirageTowerMetatiles(void)
 {
     u8 i;
     for (i = 0; i < ARRAY_COUNT(sInvisibleMirageTowerMetatiles); i++)
-        MapGridSetMetatileIdAt(sInvisibleMirageTowerMetatiles[i].x + MAP_OFFSET,
-                               sInvisibleMirageTowerMetatiles[i].y + MAP_OFFSET,
-                               sInvisibleMirageTowerMetatiles[i].metatileId);
+        MapGridSetMetatileIdAt(sInvisibleMirageTowerMetatiles[i].x + 7, sInvisibleMirageTowerMetatiles[i].y + 7, sInvisibleMirageTowerMetatiles[i].metatileId);
     DrawWholeMapView();
 }
 
@@ -538,8 +534,8 @@ static void InitMirageTowerShake(u8 taskId)
     case 1:
         sMirageTowerGfxBuffer = (u8 *)AllocZeroed(MIRAGE_TOWER_GFX_LENGTH);
         sMirageTowerTilemapBuffer = (u8 *)AllocZeroed(BG_SCREEN_SIZE);
-        ChangeBgX(0, 0, BG_COORD_SET);
-        ChangeBgY(0, 0, BG_COORD_SET);
+        ChangeBgX(0, 0, 0);
+        ChangeBgY(0, 0, 0);
         gTasks[taskId].tState++;
         break;
     case 2:
@@ -568,7 +564,7 @@ static void InitMirageTowerShake(u8 taskId)
         sBgShakeOffsets->bgVOFS = zero;
         CreateTask(UpdateBgShake, 10);
         DestroyTask(taskId);
-        ScriptContext_Enable();
+        EnableBothScriptContexts();
         break;
     }
 }
@@ -657,7 +653,7 @@ static void DoMirageTowerDisintegration(u8 taskId)
         break;
     case 8:
         DestroyTask(taskId);
-        ScriptContext_Enable();
+        EnableBothScriptContexts();
         break;
     }
     gTasks[taskId].tState++;
@@ -722,7 +718,7 @@ static void Task_FossilFallAndSink(u8 taskId)
         FREE_AND_SET_NULL(sFallingFossil);
         break;
     case 8:
-        ScriptContext_Enable();
+        EnableBothScriptContexts();
         break;
     }
     gTasks[taskId].tState++;
@@ -751,7 +747,7 @@ static void SpriteCB_FallingFossil(struct Sprite *sprite)
     }
 }
 
-static void UpdateDisintegrationEffect(u8 *tiles, u16 randId, u8 c, u8 size, u8 offset)
+static void UpdateDisintegrationEffect(u8* tiles, u16 randId, u8 c, u8 size, u8 offset)
 {
     u8 heightTiles, height, widthTiles, width;
     u16 var, baseOffset;
@@ -768,7 +764,7 @@ static void UpdateDisintegrationEffect(u8 *tiles, u16 randId, u8 c, u8 size, u8 
     col = width & 7;
     sDebug_DisintegrationData[2] = height & 7;
     sDebug_DisintegrationData[3] = width & 7;
-
+    
     widthTiles = width / 8;
     heightTiles = height / 8;
     sDebug_DisintegrationData[4] = width / 8;
@@ -776,11 +772,11 @@ static void UpdateDisintegrationEffect(u8 *tiles, u16 randId, u8 c, u8 size, u8 
 
     var = (size / 8) * (heightTiles * 64) + (widthTiles * 64);
     sDebug_DisintegrationData[6] = var;
-
+    
     baseOffset = var + ((row * 8) + col);
     baseOffset /= 2;
     sDebug_DisintegrationData[7] = var + ((row * 8) + col);
-
+    
     flag = ((randId % 2) ^ 1);
     tileMask = (c << (flag << 2)) | 15 << (((flag ^ 1) << 2));
     tiles[baseOffset + (offset * 32)] &= tileMask;

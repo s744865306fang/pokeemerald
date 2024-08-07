@@ -25,7 +25,8 @@ EverGrandeCity_PhoebesRoom_EventScript_WalkInCloseDoor::
 
 EverGrandeCity_PhoebesRoom_OnLoad:
 	call_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_ResetAdvanceToNextRoom
-	call_if_eq VAR_ELITE_4_STATE, 2, EverGrandeCity_PhoebesRoom_EventScript_CloseDoor
+	compare VAR_ELITE_4_STATE, 2
+	call_if_eq EverGrandeCity_PhoebesRoom_EventScript_CloseDoor
 	end
 
 EverGrandeCity_PhoebesRoom_EventScript_ResetAdvanceToNextRoom::

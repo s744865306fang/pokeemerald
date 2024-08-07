@@ -11,7 +11,8 @@ MarineCave_End_OnResume:
 
 MarineCave_End_EventScript_TryRemoveKyogre::
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_ne Common_EventScript_NopReturn
 	removeobject LOCALID_KYOGRE
 	return
 
@@ -31,20 +32,23 @@ MarineCave_End_EventScript_Kyogre::
 	applymovement LOCALID_KYOGRE, MarineCave_End_Movement_KyogreApproach
 	waitmovement 0
 	waitse
-	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_KYOGRE, 2
 	delay 40
 	waitmoncry
 	setvar VAR_LAST_TALKED, LOCALID_KYOGRE
-	setwildbattle SPECIES_KYOGRE, 70
+	setwildbattle SPECIES_KYOGRE, 70, ITEM_NONE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	setvar VAR_TEMP_1, 0
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MarineCave_End_EventScript_DefeatedKyogre
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MarineCave_End_EventScript_RanFromKyogre
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MarineCave_End_EventScript_RanFromKyogre
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq MarineCave_End_EventScript_DefeatedKyogre
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq MarineCave_End_EventScript_RanFromKyogre
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq MarineCave_End_EventScript_RanFromKyogre
 	setvar VAR_SHOULD_END_ABNORMAL_WEATHER, 1
 	setflag FLAG_DEFEATED_KYOGRE
 	releaseall

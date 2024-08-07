@@ -13,7 +13,8 @@ Route114_LanettesHouse_EventScript_Lanette::
 	setflag FLAG_SYS_PC_LANETTE
 	msgbox Route114_LanettesHouse_Text_EverythingClutteredKeepThis, MSGBOX_DEFAULT
 	givedecoration DECOR_LOTAD_DOLL
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowNoRoomForDecor
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowNoRoomForDecor
 	setflag FLAG_RECEIVED_DOLL_LANETTE
 	release
 	end
@@ -26,14 +27,16 @@ Route114_LanettesHouse_EventScript_OfferAdvice::
 Route114_LanettesHouse_EventScript_Notebook::
 	lockall
 	msgbox Route114_LanettesHouse_Text_ResearchNotesPage1, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage2
+	compare VAR_RESULT, YES
+	goto_if_eq Route114_LanettesHouse_EventScript_NotebookPage2
 	msgbox Route114_LanettesHouse_Text_ClosedTheNotebook, MSGBOX_DEFAULT
 	releaseall
 	end
 
 Route114_LanettesHouse_EventScript_NotebookPage2::
 	msgbox Route114_LanettesHouse_Text_ResearchNotesPage2, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage3
+	compare VAR_RESULT, YES
+	call_if_eq Route114_LanettesHouse_EventScript_NotebookPage3
 	releaseall
 	end
 

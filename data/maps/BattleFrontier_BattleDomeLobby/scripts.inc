@@ -21,11 +21,11 @@ BattleFrontier_BattleDomeLobby_EventScript_TurnPlayerNorth::
 	end
 
 BattleFrontier_BattleDomeLobby_OnFrame:
-	map_script_2 VAR_TEMP_CHALLENGE_STATUS, 0, BattleFrontier_BattleDomeLobby_EventScript_GetChallengeStatus
-	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_SAVING, BattleFrontier_BattleDomeLobby_EventScript_QuitWithoutSaving
-	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_PAUSED, BattleFrontier_BattleDomeLobby_EventScript_ResumeChallenge
-	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_WON, BattleFrontier_BattleDomeLobby_EventScript_WonChallenge
-	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_LOST, BattleFrontier_BattleDomeLobby_EventScript_LostChallenge
+	map_script_2 VAR_TEMP_0, 0, BattleFrontier_BattleDomeLobby_EventScript_GetChallengeStatus
+	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_SAVING, BattleFrontier_BattleDomeLobby_EventScript_QuitWithoutSaving
+	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_PAUSED, BattleFrontier_BattleDomeLobby_EventScript_ResumeChallenge
+	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_WON, BattleFrontier_BattleDomeLobby_EventScript_WonChallenge
+	map_script_2 VAR_TEMP_0, CHALLENGE_STATUS_LOST, BattleFrontier_BattleDomeLobby_EventScript_LostChallenge
 	.2byte 0
 
 BattleFrontier_BattleDomeLobby_EventScript_GetChallengeStatus::
@@ -40,7 +40,7 @@ BattleFrontier_BattleDomeLobby_EventScript_QuitWithoutSaving::
 	dome_set DOME_DATA_WIN_STREAK_ACTIVE, FALSE
 	dome_set DOME_DATA_ATTEMPTED_CHALLENGE, TRUE
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, 0
-	setvar VAR_TEMP_CHALLENGE_STATUS, 255
+	setvar VAR_TEMP_0, 255
 	releaseall
 	end
 
@@ -48,7 +48,8 @@ BattleFrontier_BattleDomeLobby_EventScript_WonChallenge::
 	call BattleFrontier_EventScript_IncrementWinStreak
 	lockall
 	frontier_isbrain
-	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_BattleDomeLobby_EventScript_DefeatedAce
+	compare VAR_RESULT, TRUE
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_DefeatedAce
 	msgbox BattleFrontier_BattleDomeLobby_Text_CongratsForWinningTourney, MSGBOX_DEFAULT
 	goto BattleFrontier_BattleDomeLobby_EventScript_GiveBattlePoints
 
@@ -87,7 +88,8 @@ BattleFrontier_BattleDomeLobby_EventScript_AskRecordBattle::
 	playse SE_SAVE
 	waitse
 	call BattleFrontier_EventScript_GetCantRecordBattle
-	goto_if_eq VAR_RESULT, TRUE, BattleFrontier_BattleDomeLobby_EventScript_EndChallenge
+	compare VAR_RESULT, TRUE
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_EndChallenge
 	message BattleFrontier_BattleDomeLobby_Text_RecordLastMatch
 	waitmessage
 	multichoicedefault 20, 8, MULTI_YESNO, 1, FALSE
@@ -101,7 +103,7 @@ BattleFrontier_BattleDomeLobby_EventScript_RecordBattle::
 BattleFrontier_BattleDomeLobby_EventScript_EndChallenge::
 	msgbox BattleFrontier_BattleDomeLobby_Text_HopeToSeeYouAgain, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_TEMP_CHALLENGE_STATUS, 255
+	setvar VAR_TEMP_0, 255
 	releaseall
 	end
 
@@ -114,7 +116,7 @@ BattleFrontier_BattleDomeLobby_EventScript_ResumeChallenge::
 	playse SE_SAVE
 	waitse
 	frontier_set FRONTIER_DATA_PAUSED, FALSE
-	setvar VAR_TEMP_CHALLENGE_STATUS, 255
+	setvar VAR_TEMP_0, 255
 	goto BattleFrontier_BattleDomeLobby_EventScript_EnterChallenge
 
 BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendant::
@@ -135,11 +137,15 @@ BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendant::
 
 BattleFrontier_BattleDomeLobby_EventScript_AttendantWelcome::
 	special SavePlayerParty
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_WelcomeSingles
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_WelcomeDoubles
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_WelcomeSingles
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_WelcomeDoubles
 BattleFrontier_BattleDomeLobby_EventScript_AskTakeChallenge::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_TakeSinglesChallenge
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_TakeDoublesChallenge
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_TakeSinglesChallenge
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_TakeDoublesChallenge
 	waitmessage
 	multichoice 17, 6, MULTI_CHALLENGEINFO, FALSE
 	switch VAR_RESULT
@@ -156,7 +162,8 @@ BattleFrontier_BattleDomeLobby_EventScript_TryEnterChallenge::
 	case FRONTIER_LVL_TENT, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
 	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_CancelChallenge
 	frontier_checkineligible
-	goto_if_eq VAR_0x8004, TRUE, BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMons
+	compare VAR_0x8004, TRUE
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMons
 	frontier_set FRONTIER_DATA_LVL_MODE, VAR_RESULT
 	msgbox BattleFrontier_BattleDomeLobby_Text_SelectThreeMons, MSGBOX_DEFAULT
 	fadescreen FADE_TO_BLACK
@@ -165,7 +172,8 @@ BattleFrontier_BattleDomeLobby_EventScript_TryEnterChallenge::
 	setvar VAR_0x8005, FRONTIER_PARTY_SIZE
 	special ChoosePartyForBattleFrontier
 	waitstate
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
+	compare VAR_RESULT, 0
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
 	msgbox BattleFrontier_BattleDomeLobby_Text_OkayToSaveBeforeChallenge, MSGBOX_YESNO
 	switch VAR_RESULT
 	case NO, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
@@ -173,7 +181,7 @@ BattleFrontier_BattleDomeLobby_EventScript_TryEnterChallenge::
 	case MULTI_B_PRESSED, BattleFrontier_BattleDomeLobby_EventScript_LoadPartyCancelChallenge
 
 BattleFrontier_BattleDomeLobby_EventScript_SaveBeforeChallenge::
-	setvar VAR_TEMP_CHALLENGE_STATUS, 0
+	setvar VAR_TEMP_0, 0
 	frontier_set FRONTIER_DATA_SELECTED_MON_ORDER
 	dome_init
 	frontier_set FRONTIER_DATA_CHALLENGE_STATUS, CHALLENGE_STATUS_SAVING
@@ -182,8 +190,9 @@ BattleFrontier_BattleDomeLobby_EventScript_SaveBeforeChallenge::
 	closemessage
 	delay 2
 	call Common_EventScript_SaveGame
-	setvar VAR_TEMP_CHALLENGE_STATUS, 255
-	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_CancelChallengeSaveFailed
+	setvar VAR_TEMP_0, 255
+	compare VAR_RESULT, 0
+	goto_if_eq BattleFrontier_BattleDomeLobby_EventScript_CancelChallengeSaveFailed
 	dome_inittrainers
 BattleFrontier_BattleDomeLobby_EventScript_EnterChallenge::
 	special SavePlayerParty
@@ -193,14 +202,16 @@ BattleFrontier_BattleDomeLobby_EventScript_EnterChallenge::
 	closemessage
 	call BattleFrontier_BattleDomeLobby_EventScript_WalkToDoor
 	special HealPlayerParty
-	warp MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR, 23, 6
-	setvar VAR_TEMP_CHALLENGE_STATUS, 0
+	warp MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR, 255, 23, 6
+	setvar VAR_TEMP_0, 0
 	waitstate
 	end
 
 BattleFrontier_BattleDomeLobby_EventScript_ExplainChallenge::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_ExplainSinglesChallenge
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_ExplainDoublesChallenge
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_ExplainSinglesChallenge
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_ExplainDoublesChallenge
 	goto BattleFrontier_BattleDomeLobby_EventScript_AskTakeChallenge
 
 BattleFrontier_BattleDomeLobby_EventScript_NotEnoughValidMons::
@@ -229,19 +240,27 @@ BattleFrontier_BattleDomeLobby_EventScript_EndCancelChallenge::
 	end
 
 BattleFrontier_BattleDomeLobby_EventScript_WalkToDoor::
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantWalkToDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantWalkToDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantWalkToDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantWalkToDoor
 	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_WalkToDoor
 	waitmovement 0
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_OpenSinglesDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_OpenDoublesDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_OpenSinglesDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_OpenDoublesDoor
 	waitdooranim
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantEnterDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantEnterDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_SinglesAttendantEnterDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_DoublesAttendantEnterDoor
 	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleDomeLobby_Movement_PlayerEnterDoor
 	waitmovement 0
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES, BattleFrontier_BattleDomeLobby_EventScript_CloseSinglesDoor
-	call_if_eq VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleDomeLobby_EventScript_CloseDoublesDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_SINGLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_CloseSinglesDoor
+	compare VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_CloseDoublesDoor
 	waitdooranim
 	return
 
@@ -338,10 +357,14 @@ BattleFrontier_BattleDomeLobby_EventScript_ShowDoublesResults::
 
 BattleFrontier_BattleDomeLobby_EventScript_ShowPrevTourneyTree::
 	dome_get DOME_DATA_PREV_TOURNEY_TYPE
-	call_if_eq VAR_RESULT, 0, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLv50
-	call_if_eq VAR_RESULT, 1, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLv50
-	call_if_eq VAR_RESULT, 2, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLvOpen
-	call_if_eq VAR_RESULT, 3, BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLvOpen
+	compare VAR_RESULT, 0
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLv50
+	compare VAR_RESULT, 1
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLv50
+	compare VAR_RESULT, 2
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsSinglesLvOpen
+	compare VAR_RESULT, 3
+	call_if_eq BattleFrontier_BattleDomeLobby_EventScript_PrevTourneyResultsDoublesLvOpen
 	fadescreen FADE_TO_BLACK
 	dome_showprevtourneytree
 	waitstate

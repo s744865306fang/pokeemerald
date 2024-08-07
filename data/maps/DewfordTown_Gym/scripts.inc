@@ -3,66 +3,77 @@ DewfordTown_Gym_MapScripts::
 	.byte 0
 
 DewfordTown_Gym_OnTransition:
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	end
 
-DewfordTown_Gym_EventScript_SetFlashLevel::
+DewfordTown_Gym_EventScript_SetFlashRadius::
 	goto_if_defeated TRAINER_BRAWLY_1, DewfordTown_Gym_EventScript_SetLightsOn
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	copyvar VAR_0x8001, VAR_0x8000
-	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_SetFlashLevel6
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_SetFlashLevel5
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_SetFlashLevel4
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_SetFlashLevel3
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_SetFlashLevel2
-	goto DewfordTown_Gym_EventScript_SetFlashLevel1
+	compare VAR_0x8000, 0
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius7
+	compare VAR_0x8000, 1
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius6
+	compare VAR_0x8000, 2
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius5
+	compare VAR_0x8000, 3
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius4
+	compare VAR_0x8000, 4
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius3
+	compare VAR_0x8000, 5
+	goto_if_eq DewfordTown_Gym_EventScript_SetFlashRadius2
+	goto DewfordTown_Gym_EventScript_SetFlashRadius1
 
 DewfordTown_Gym_EventScript_SetLightsOn::
-	setflashlevel 0
+	setflashradius 0
 	return
 
-@ Brightest
-DewfordTown_Gym_EventScript_SetFlashLevel1::
-	setflashlevel 1
+DewfordTown_Gym_EventScript_SetFlashRadius1::
+	setflashradius 1
 	return
 
-DewfordTown_Gym_EventScript_SetFlashLevel2::
-	setflashlevel 2
+DewfordTown_Gym_EventScript_SetFlashRadius2::
+	setflashradius 2
 	return
 
-DewfordTown_Gym_EventScript_SetFlashLevel3::
-	setflashlevel 3
+DewfordTown_Gym_EventScript_SetFlashRadius3::
+	setflashradius 3
 	return
 
-DewfordTown_Gym_EventScript_SetFlashLevel4::
-	setflashlevel 4
+DewfordTown_Gym_EventScript_SetFlashRadius4::
+	setflashradius 4
 	return
 
-DewfordTown_Gym_EventScript_SetFlashLevel5::
-	setflashlevel 5
+DewfordTown_Gym_EventScript_SetFlashRadius5::
+	setflashradius 5
 	return
 
-DewfordTown_Gym_EventScript_SetFlashLevel6::
-	setflashlevel 6
+DewfordTown_Gym_EventScript_SetFlashRadius6::
+	setflashradius 6
 	return
 
-@ Darkest
-DewfordTown_Gym_EventScript_SetFlashLevel7::
-	setflashlevel 7
+DewfordTown_Gym_EventScript_SetFlashRadius7::
+	setflashradius 7
 	return
 
 DewfordTown_Gym_EventScript_BrightenRoom::
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	nop1
-	goto_if_eq VAR_0x8000, VAR_0x8001, DewfordTown_Gym_EventScript_NoLightChange
+	compare VAR_0x8000, VAR_0x8001
+	goto_if_eq DewfordTown_Gym_EventScript_NoLightChange
 	copyvar VAR_0x8001, VAR_0x8000
-	goto_if_eq VAR_0x8000, 1, DewfordTown_Gym_EventScript_AnimateFlash1Trainer
-	goto_if_eq VAR_0x8000, 2, DewfordTown_Gym_EventScript_AnimateFlash2Trainers
-	goto_if_eq VAR_0x8000, 3, DewfordTown_Gym_EventScript_AnimateFlash3Trainers
-	goto_if_eq VAR_0x8000, 4, DewfordTown_Gym_EventScript_AnimateFlash4Trainers
-	goto_if_eq VAR_0x8000, 5, DewfordTown_Gym_EventScript_AnimateFlash5Trainers
-	goto_if_eq VAR_0x8000, 6, DewfordTown_Gym_EventScript_AnimateFlash6Trainers
+	compare VAR_0x8000, 1
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash1Trainer
+	compare VAR_0x8000, 2
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash2Trainers
+	compare VAR_0x8000, 3
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash3Trainers
+	compare VAR_0x8000, 4
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash4Trainers
+	compare VAR_0x8000, 5
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash5Trainers
+	compare VAR_0x8000, 6
+	goto_if_eq DewfordTown_Gym_EventScript_AnimateFlash6Trainers
 
 DewfordTown_Gym_EventScript_NoLightChange::
 	return
@@ -71,43 +82,43 @@ DewfordTown_Gym_EventScript_NoLightChange::
 DewfordTown_Gym_EventScript_AnimateFlash1Trainer::
 	playse SE_SWITCH
 	animateflash 6
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash2Trainers::
 	playse SE_SWITCH
 	animateflash 5
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash3Trainers::
 	playse SE_SWITCH
 	animateflash 4
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash4Trainers::
 	playse SE_SWITCH
 	animateflash 3
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash5Trainers::
 	playse SE_SWITCH
 	animateflash 2
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash6Trainers::
 	playse SE_SWITCH
 	animateflash 1
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
 	playse SE_SWITCH
 	animateflash 0
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+	call DewfordTown_Gym_EventScript_SetFlashRadius
 	return
 
 DewfordTown_Gym_EventScript_CountTrainersDefeated::
@@ -135,8 +146,9 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 DewfordTown_Gym_EventScript_Brawly::
 	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
-	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
+	compare VAR_RESULT, TRUE
+	goto_if_eq DewfordTown_Gym_EventScript_BrawlyRematch
+	goto_if_unset FLAG_RECEIVED_TM08, DewfordTown_Gym_EventScript_GiveBulkUp2
 	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -150,7 +162,8 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
+	compare VAR_PETALBURG_GYM_STATE, 6
+	call_if_eq Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	call DewfordTown_Gym_EventScript_GiveBulkUp
@@ -168,17 +181,19 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	end
 
 DewfordTown_Gym_EventScript_GiveBulkUp::
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
+	giveitem ITEM_TM08
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_BagIsFull
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
+	setflag FLAG_RECEIVED_TM08
 	return
 
 DewfordTown_Gym_EventScript_GiveBulkUp2:
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_TM08
+	compare VAR_RESULT, 0
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
+	setflag FLAG_RECEIVED_TM08
 	release
 	end
 

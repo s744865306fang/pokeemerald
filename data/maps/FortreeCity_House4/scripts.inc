@@ -34,7 +34,8 @@ FortreeCity_House4_EventScript_WingullReturned::
 	waitmovement 0
 	msgbox FortreeCity_House4_Text_WelcomeWingullTakeMentalHerb, MSGBOX_DEFAULT
 	giveitem ITEM_MENTAL_HERB
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	compare VAR_RESULT, FALSE
+	goto_if_eq Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_MENTAL_HERB
 	releaseall
 	end
@@ -50,7 +51,7 @@ FortreeCity_House4_Movement_WingullExit:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_right
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	delay_8
 	step_end
 
@@ -58,7 +59,7 @@ FortreeCity_House4_EventScript_Wingull::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_WINGULL, CRY_MODE_NORMAL
+	playmoncry SPECIES_WINGULL, 0
 	msgbox FortreeCity_House4_Text_Wingull, MSGBOX_DEFAULT
 	waitmoncry
 	release

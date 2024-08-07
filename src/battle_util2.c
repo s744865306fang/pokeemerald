@@ -34,8 +34,8 @@ void AllocateBattleResources(void)
     gLinkBattleSendBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
     gLinkBattleRecvBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
 
-    gBattleAnimBgTileBuffer = AllocZeroed(0x2000);
-    gBattleAnimBgTilemapBuffer = AllocZeroed(0x1000);
+    gUnknown_0202305C = AllocZeroed(0x2000);
+    gUnknown_02023060 = AllocZeroed(0x1000);
 
     if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
     {
@@ -66,8 +66,8 @@ void FreeBattleResources(void)
         FREE_AND_SET_NULL(gLinkBattleSendBuffer);
         FREE_AND_SET_NULL(gLinkBattleRecvBuffer);
 
-        FREE_AND_SET_NULL(gBattleAnimBgTileBuffer);
-        FREE_AND_SET_NULL(gBattleAnimBgTilemapBuffer);
+        FREE_AND_SET_NULL(gUnknown_0202305C);
+        FREE_AND_SET_NULL(gUnknown_02023060);
     }
 }
 
@@ -108,19 +108,20 @@ void SwitchPartyOrderInGameMulti(u8 battlerId, u8 arg1)
     if (GetBattlerSide(battlerId) != B_SIDE_OPPONENT)
     {
         s32 i;
+
+        // gBattleStruct->field_60[0][i]
+
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
-            gBattlePartyCurrentOrder[i] = *(0 * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders));
+            gBattlePartyCurrentOrder[i] = *(0 * 3 + i + (u8*)(gBattleStruct->field_60));
 
         SwitchPartyMonSlots(GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battlerId]), GetPartyIdFromBattlePartyId(arg1));
 
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
-            *(0 * 3 + i + (u8 *)(gBattleStruct->battlerPartyOrders)) = gBattlePartyCurrentOrder[i];
+            *(0 * 3 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
     }
 }
 
-// Called when a Pokémon is unable to attack during a Battle Palace battle.
-// Check if it was because they are frozen/asleep, and if so try to cure the status.
-u32 BattlePalace_TryEscapeStatus(u8 battlerId)
+u32 sub_805725C(u8 battlerId)
 {
     u32 effect = 0;
 
@@ -133,7 +134,6 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
             {
                 if (UproarWakeUpCheck(battlerId))
                 {
-                    // Wake up from Uproar
                     gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
                     gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
                     BattleScriptPushCursor();
@@ -150,7 +150,6 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
                     else
                         toSub = 1;
 
-                    // Reduce number of sleep turns
                     if ((gBattleMons[battlerId].status1 & STATUS1_SLEEP) < toSub)
                         gBattleMons[battlerId].status1 &= ~(STATUS1_SLEEP);
                     else
@@ -158,13 +157,11 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
 
                     if (gBattleMons[battlerId].status1 & STATUS1_SLEEP)
                     {
-                        // Still asleep
                         gBattlescriptCurrInstr = BattleScript_MoveUsedIsAsleep;
                         effect = 2;
                     }
                     else
                     {
-                        // Wake up
                         gBattleMons[battlerId].status2 &= ~(STATUS2_NIGHTMARE);
                         BattleScriptPushCursor();
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WOKE_UP;
@@ -180,12 +177,10 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
             {
                 if (Random() % 5 != 0)
                 {
-                    // Still frozen
                     gBattlescriptCurrInstr = BattleScript_MoveUsedIsFrozen;
                 }
                 else
                 {
-                    // Unfreeze
                     gBattleMons[battlerId].status1 &= ~(STATUS1_FREEZE);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MoveUsedUnfroze;
@@ -198,13 +193,13 @@ u32 BattlePalace_TryEscapeStatus(u8 battlerId)
         case 2:
             break;
         }
-        // Loop until reaching the final state, or stop early if Pokémon was Asleep/Frozen
+
     } while (gBattleCommunication[MULTIUSE_STATE] != 2 && effect == 0);
 
     if (effect == 2)
     {
         gActiveBattler = battlerId;
-        BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
+        BtlController_EmitSetMonData(0, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[gActiveBattler].status1);
         MarkBattlerForControllerExec(gActiveBattler);
     }
 

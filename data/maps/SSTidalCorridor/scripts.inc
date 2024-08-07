@@ -45,8 +45,10 @@ SSTidalRooms_EventScript_ArrivedInLilycove::
 	return
 
 SSTidalCorridor_EventScript_ReachedStepCount::
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_DEPART_SLATEPORT, SSTidalCorridor_EventScript_HalfwayToLilycove
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_HALFWAY_SLATEPORT, SSTidalCorridor_EventScript_ArrivedInSlateport
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_DEPART_SLATEPORT
+	goto_if_eq SSTidalCorridor_EventScript_HalfwayToLilycove
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_HALFWAY_SLATEPORT
+	goto_if_eq SSTidalCorridor_EventScript_ArrivedInSlateport
 	end
 
 SSTidalCorridor_EventScript_HalfwayToLilycove::
@@ -90,7 +92,7 @@ SSTidalCorridor_EventScript_Peeko::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_WINGULL, CRY_MODE_NORMAL
+	playmoncry SPECIES_WINGULL, 0
 	msgbox SSTidalCorridor_Text_Peeko, MSGBOX_DEFAULT
 	waitmoncry
 	release
@@ -115,8 +117,10 @@ SSTidalCorridor_EventScript_Cabin4Sign::
 SSTidalCorridor_EventScript_ExitSailor::
 	lock
 	faceplayer
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_LILYCOVE, SSTidalCorridor_EventScript_ExitLilycove
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_SLATEPORT, SSTidalCorridor_EventScript_ExitSlateport
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_LILYCOVE
+	goto_if_eq SSTidalCorridor_EventScript_ExitLilycove
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_LAND_SLATEPORT
+	goto_if_eq SSTidalCorridor_EventScript_ExitSlateport
 	msgbox SSTidalCorridor_Text_CanRestInCabin2, MSGBOX_DEFAULT
 	release
 	end
@@ -124,8 +128,8 @@ SSTidalCorridor_EventScript_ExitSailor::
 SSTidalCorridor_EventScript_ExitLilycove::
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
-	warp MAP_LILYCOVE_CITY_HARBOR, 8, 11
+	call_if_set FLAG_RECEIVED_TM49, SSTidalCorridor_EventScript_HideSnatchGiver
+	warp MAP_LILYCOVE_CITY_HARBOR, 255, 8, 11
 	waitstate
 	release
 	end
@@ -133,8 +137,8 @@ SSTidalCorridor_EventScript_ExitLilycove::
 SSTidalCorridor_EventScript_ExitSlateport::
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
-	warp MAP_SLATEPORT_CITY_HARBOR, 8, 11
+	call_if_set FLAG_RECEIVED_TM49, SSTidalCorridor_EventScript_HideSnatchGiver
+	warp MAP_SLATEPORT_CITY_HARBOR, 255, 8, 11
 	waitstate
 	release
 	end
@@ -145,8 +149,10 @@ SSTidalCorridor_EventScript_HideSnatchGiver::
 
 SSTidalCorridor_EventScript_Porthole::
 	lockall
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_DEPART_SLATEPORT, SSTidalCorridor_EventScript_LookThroughPorthole
-	goto_if_eq VAR_SS_TIDAL_STATE, SS_TIDAL_HALFWAY_SLATEPORT, SSTidalCorridor_EventScript_LookThroughPorthole
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_DEPART_SLATEPORT
+	goto_if_eq SSTidalCorridor_EventScript_LookThroughPorthole
+	compare VAR_SS_TIDAL_STATE, SS_TIDAL_HALFWAY_SLATEPORT
+	goto_if_eq SSTidalCorridor_EventScript_LookThroughPorthole
 	msgbox SSTidalCorridor_Text_HorizonSpreadsBeyondPorthole, MSGBOX_DEFAULT
 	releaseall
 	end
@@ -190,7 +196,7 @@ SSTidalCorridor_EventScript_ScottScene::
 	lockall
 	applymovement LOCALID_SCOTT, SSTidalCorridor_Movement_ScottApproachPlayer
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	msgbox SSTidalCorridor_Text_ScottBattleFrontierInvite, MSGBOX_DEFAULT
 	closemessage
@@ -220,7 +226,7 @@ SSTidalCorridor_Movement_ScottApproachPlayer:
 	step_end
 
 SSTidalCorridor_Movement_ScottExit:
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	delay_16
 	delay_16
 	delay_16
@@ -235,22 +241,22 @@ SSTidalCorridor_Movement_PlayerWatchScottExit:
 	delay_16
 	delay_16
 	delay_8
-	walk_in_place_faster_down
+	walk_in_place_fastest_down
 	step_end
 
 SSTidalCorridor_Movement_SailorMoveForScott:
 	delay_16
 	walk_right
 	walk_right
-	walk_in_place_faster_up
+	walk_in_place_fastest_up
 	delay_16
-	walk_in_place_faster_left
+	walk_in_place_fastest_left
 	step_end
 
 SSTidalCorridor_Movement_SailorReturn:
 	walk_left
 	walk_left
-	walk_in_place_faster_up
+	walk_in_place_fastest_up
 	step_end
 
 SSTidalCorridor_Text_ScottBattleFrontierInvite:
